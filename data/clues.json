@@ -1,0 +1,1055 @@
+{
+  "clues": [
+    {
+      "title": "The Information Board Mystery",
+      "subtitle": "Clue #1",
+      "cypherImage": "",
+      "directions": [
+        { "type": "story", "text": "Moo gestures grandly with his magnifying glass from the centre of the car park." },
+        { "type": "dialogue", "character": "Moo", "text": "The trail begins, my dear detectives! Our first piece of evidence awaits." },
+        { "type": "dialogue", "character": "Hazel", "text": "It's over here, Moo." },
+        { "type": "story", "text": "Hazel is already standing by the huge, blue information board at the car park entrance that tells the grand story of Dunfermline." },
+        { "type": "dialogue", "character": "Hazel", "text": "Try to keep up." },
+        { "type": "story", "text": "Join Hazel and Moo at this historic sign." }
+      ],
+      "directionsImages": ["assets/images/ui/wait.jpg"],
+      "clueStory": [
+        { "type": "story", "text": "Moo presses his nose against the map section of the board, his eyes wide." },
+        { "type": "dialogue", "character": "Moo", "text": "Aha! X marks the spot! This must be a treasure map leading to the legendary Great Golden Acorn!" },
+        { "type": "story", "text": "Hazel lets out a long, slow sigh." },
+        { "type": "dialogue", "character": "Hazel", "text": "Moo, that’s the symbol for the tourist information centre. And the Great Golden Acorn isn't real." },
+        { "type": "dialogue", "character": "Hazel", "text": "While he’s busy hunting for mythical nuts, perhaps we can look for a real clue. A clever troublemaker might have hidden a coded message for an associate right here in plain sight." }
+      ],
+      "task": {
+        "character": "Hazel",
+        "text": "Look closely at the main block of text on the left of the sign. Find three words: First, what is the royal title given to the Saxon, Margaret? Next, what is the word used to describe what was done with the remains of many royals? Finally, of the two words describing Andrew Carnegie, find the one that refers to his generous, giving nature. Take the first letter of each, in order. They will spell the name of a key figure in this investigation."
+      },
+      "type": "suspect",
+      "answer": "Pip Quick Wing",
+      "correctAnswerReason": [
+        { "type": "dialogue", "character": "Player", "text": "Pip." },
+        { "type": "dialogue", "character": "Moo", "text": "Pip? Like a tiny apple seed? What kind of a name is that for a villain?" },
+        { "type": "story", "text": "Just then, a flash of red darts past your head and a small, twitchy robin lands on the corner of the sign." },
+        { "type": "dialogue", "character": "Robin", "text": "Heard my name!" },
+        { "type": "story", "text": "The robin immediately zips off again towards the Glen." },
+        { "type": "dialogue", "character": "Hazel", "text": "That was Pip Quick-wing. He’s the park’s eyes and ears. Far too busy reporting on the feud to have actually started it. He's a source, not a suspect. Excellent work, Detective. We can rule him out." }
+        
+      ],
+      "wrongAnswerReason": [
+        { "type": "dialogue", "character": "Player", "text": "The culprit is... PIE!" },
+        { "type": "dialogue", "character": "Moo", "text": "Of course! It all makes sense! The culprit is a... Pilferer of Important Eateries! He must be after the park's cafe! To the scones!" },
+        { "type": "dialogue", "character": "Hazel", "text": "A valiant effort, Moo, but I think the letters might be in a different order. Our Junior Detective should take another look at the board. The clues must fit together perfectly." }
+      ],
+      "motivationalQuote": [
+        { "type": "dialogue", "character": "Moo", "text": "Well, I'm glad we figured that out! To be honest, I was getting tired of his constant tweeting!" },
+        { "type": "dialogue", "character": "Hazel", "text": "Moo, robins don't tweet, they chirp. And you're confusing social media with ornithology. Again." }
+      ]
+    },
+
+    {
+  "title": "The Green Board Cipher",
+  "subtitle": "Clue #2",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "You leave the first sign behind and head towards the main pedestrian entrance to the park." },
+    { "type": "story", "text": "Just before you pass through the gates into the Glen proper, you stop in front of a large green welcome board dominated by a colourful map." }
+  ],
+  "directionsImages": ["assets/images/ui/green-board.jpg"],
+  "clueStory": [
+    { "type": "story", "text": "Moo’s eyes glaze over as he scans the pictures of playgrounds and seasonal activities." },
+    { "type": "dialogue", "character": "Moo", "text": "Ooh! A Rubbings Trail! And Play Parks! <span id=\"player-name-placeholder\">Detective</span>, perhaps we should pause this very serious investigation for a quick go on the swings? For, er, surveillance purposes?" },
+    { "type": "story", "text": "Hazel ignores him, scanning the board with suspicion." },
+    { "type": "dialogue", "character": "Hazel", "text": "This map shows a place of fun and laughter, Detective. But look closer. Anything this organised is the perfect place to hide a disorganised secret. I think our troublemaker has left us another message, using the board’s own system against itself." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "It’s a two-part code. First, look on the left-hand side of the board and count how many coloured category boxes there are in total. Next, find the ‘Summer’ activities panel on the right. Under the heading ‘See some wildlife’, count down that many rows. The very first word of that row is our clue. It’s a title."
+  },
+  "type": "suspect",
+  "answer": "Count Beaumont Badger",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Count." },
+    { "type": "dialogue", "character": "Moo", "text": "Count what? The leaves? The clouds? I’m on it! One... two..." },
+    { "type": "dialogue", "character": "Hazel", "text": "Not a number, Moo. A title." },
+    { "type": "dialogue", "character": "Hazel", "text": "That must refer to Count Beaumont Badger, the oldest resident of the park. He’s a frightful snob who lives in the most ancient sett and is obsessed with etiquette." },
+    { "type": "story", "text": "Hazel shakes her head, certain." },
+    { "type": "dialogue", "character": "Hazel", "text": "He’s not our culprit. He complained for a week that the squirrels were leaving nutshells on his lawn. He’s far too proper to start a feud. We can safely rule him out." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Build." },
+    { "type": "dialogue", "character": "Moo", "text": "Aha! A secret instruction! We must ‘build’ a trap to catch the villain! I’ll need some rope, a large box, and a single, perfect acorn for bait!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Stand down, Moo. You’re not building anything. The maths is off again. Recount the coloured boxes and then check the rows. The code must be followed precisely." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Well, I’m glad we can discount him from our list of suspects!" },
+    { "type": "dialogue", "character": "Hazel", "text": "His title is ‘Count’, Moo, not a retail offer. Try to maintain a shred of dignity." }
+  ]
+},
+
+{
+  "title": "The Carnegie Crest",
+  "subtitle": "Clue #3",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "You venture into the park proper, following the path to a T-junction. With a confident nod from you, the team turns right, then left, heading up the gentle hill." },
+    { "type": "story", "text": "Soon, the impressive shape of the Andrew Carnegie statue rises before you, a stern-looking man of bronze watching over his gift to the city." }
+  ],
+  "directionsImages": ["assets/images/ui/carnegie-statue.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Moo", "text": "Look! A lookout! That seagull must be one of the villain’s spies!" },
+    { "type": "dialogue", "character": "Hazel", "text": "It’s a seagull, Moo. It’s probably just resting." },
+    { "type": "story", "text": "Hazel’s eyes are drawn to the large, dark bronze plaque on the front of the monument." },
+    { "type": "dialogue", "character": "Hazel", "text": "Forget the little plaques, detectives. Look at this main one. It’s a work of art. And art often contains symbols. Powerful ones." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Look at the very top of the bronze plaque above Andrew Carnegie’s name. Two noble beasts, a kingly pair, support a castle crest. What is the name of these proud, royal beasts?"
+  },
+  "type": "suspect",
+  "answer": "Leo the Lion",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Lions." },
+    { "type": "dialogue", "character": "Moo", "text": "Lions?! In a Scottish park? Are you sure they’re not just very hairy squirrels?" },
+    { "type": "dialogue", "character": "Hazel", "text": "They’re lions, Moo. And that must be a clue about Leo, the dramatic leader of the Glen's amateur dramatics society." },
+    { "type": "story", "text": "Hazel gives a wry smile." },
+    { "type": "dialogue", "character": "Hazel", "text": "Leo is far too much of a showman to be a subtle conspirator. If he wanted to start a feud, he’d write a three-act play about it and hold open auditions. He craves the spotlight, not the shadows. We can rule him out." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Bears." },
+    { "type": "dialogue", "character": "Moo", "text": "Bears! Oh, this is worse than I thought! They’ll steal our picnic baskets... and then our dignity! We must prepare for hibernation!" },
+    { "type": "dialogue", "character": "Hazel", "text": "They have manes, Moo. Those are clearly lions. Our Junior Detective should take another look at their majestic hairdos. The species is unmistakable." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Well, I’m glad we ruled him out. I wouldn’t want to be on the receiving end of his roaring temper!" },
+    { "type": "dialogue", "character": "Hazel", "text": "He’s an actor, Moo. That’s not temper, it’s called projecting. There’s a difference." }
+  ]
+},
+
+{
+  "title": "The Hidden Stone Tower",
+  "subtitle": "Clue #4",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "With your back to the grand statue, you face the gates at the far end of the path." },
+    { "type": "story", "text": "On your instruction, the team turns left, heading away from the path and across the open grass towards the treeline." },
+    { "type": "story", "text": "Tucked just inside the woods, almost hidden from view, you find the strange little stone tower." }
+  ],
+  "directionsImages": ["assets/images/ui/stone-tower.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Moo", "text": "Woah. It must be the villain’s secret dungeon! Or maybe a tiny castle for a grumpy gnome!" },
+    { "type": "story", "text": "He creeps towards the dark wooden door and listens intently." },
+    { "type": "dialogue", "character": "Moo", "text": "I don’t hear any evil cackling." },
+    { "type": "dialogue", "character": "Hazel", "text": "It’s more likely a dovecote or a folly, Moo." },
+    { "type": "story", "text": "Hazel trots around the base of the tower, inspecting the stonework." },
+    { "type": "dialogue", "character": "Hazel", "text": "Still, it’s isolated and easily missed. A perfect place for a secret message. Detective, give it a good look. See if anything seems… out of place." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "The door is a simple pointed arch, but the window above it is unusual. Examine the window slit cut into the stone above the door. It’s not square, circular, or rectangular. What is the simple, one-word name for that shape?"
+  },
+  "type": "location",
+  "answer": "Mercat Cross",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Cross." },
+    { "type": "dialogue", "character": "Moo", "text": "Cross? Is that a warning? Is the villain... cross with us?" },
+    { "type": "dialogue", "character": "Hazel", "text": "No, Moo. It’s a location. Think about the landmarks in and around the park. There’s only one prominent place that word could be pointing to: The Mercat Cross." },
+    { "type": "story", "text": "Hazel shakes her head firmly." },
+    { "type": "dialogue", "character": "Hazel", "text": "It’s another clumsy trap. The Mercat Cross is a busy, public space. No one trying to be sneaky would use it as a hideout. They want us out of the park on a wild goose chase. We can officially cross it off our list of relevant locations." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Plus-sign." },
+    { "type": "dialogue", "character": "Moo", "text": "A plus-sign! Of course! The villain is adding to the chaos! They’re a mathematical mastermind who wants to… uh… carry the one! To victory!" },
+    { "type": "dialogue", "character": "Hazel", "text": "While that’s a valiant attempt at deduction, Moo, there’s a much more common, single word for that shape. A shape with a lot of history. Our Junior Detective should think about what it’s most famously called." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Phew, I’m glad we don’t have to go there. I was getting cross-eyed looking at that clue!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Let’s hope you don’t get cross-legged, Moo. We still have a case to finish." }
+  ]
+}, 
+
+{
+  "title": "The Woodland Sign Cipher",
+  "subtitle": "Clue #5",
+  "cypherImage": "assets/images/ui/clue6_cypher.jpg",
+  "directions": [
+    { "type": "story", "text": "You head back to the main path and turn left toward the exit gate." },
+    { "type": "story", "text": "Before you get there, a smaller path branches off to the left, marked by a simple signpost inviting you into the deeper, shadier part of the park." }
+  ],
+  "directionsImages": ["assets/images/ui/woodland-walk-sign.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Hazel", "text": "This is it. The culprit wouldn’t make the next clue easy. They’ve left us a sophisticated code, and the sign itself is the key." },
+    { "type": "dialogue", "character": "Moo", "text": "Sophisticated? That’s not my strong suit. I’m more… boldly obvious." },
+    { "type": "dialogue", "character": "Hazel", "text": "Exactly. That’s why this one is for you, Detective. Build the cipher key, derive the coordinates, and decipher the message. It’ll help us clear another name from our list." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Check the cypher and solve the name: <BR>Letter 1 — Row: how many leaf-like shapes are in the peacock’s tail in the logo? Column: how many letters are in the second word of the title. <BR>Letter 2 — Row: number of letters in the title’s last word plus the number of trees pictured on the sign. Column: how many smaller English words make up the second-to-last word. <BR>Letter 3 — Row: total count of the letter ‘A’ anywhere on the sign (title + logo). Column: how many trees are pictured. <BR> This should reveal a three-letter word."
+  },
+  "type": "suspect",
+  "answer": "Sila the Owl",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Owl." },
+    { "type": "dialogue", "character": "Moo", "text": "An owl? You mean Silas the Owl? He’s the grumpiest bird in the woods! He must be the one!" },
+    { "type": "dialogue", "character": "Hazel", "text": "On the contrary. This complex cipher, placed at the entrance to his own territory, is a warning from Silas. He’s helping—pointing us toward the real troublemaker. He’s an ally, not a suspect." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "T-K-L." },
+    { "type": "dialogue", "character": "Moo", "text": "T-K-L? A secret password! We must bring a ‘TeKeL’ of acorns!" },
+    { "type": "dialogue", "character": "Hazel", "text": "That can’t be right. A code this complex must be precise. Re-verify each coordinate: start with the leaf shapes in the peacock logo, then the title word lengths, the tree count, and the number of ‘A’s. The clues never lie." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Well, I don’t give a hoot who the culprit is, I’m glad it’s not Silas! His stare gives me the creeps!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Focus, Moo. Being grumpy isn’t a crime. Let’s keep moving." }
+  ]
+},
+
+{
+  "title": "The Golden Monograms",
+  "subtitle": "Clue #6",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "You continue along the path until you arrive at the grand, ornate entrance gates." },
+    { "type": "story", "text": "Moo lets out a sigh of relief to be out of the woods, while Hazel studies the intricate ironwork with a focused gaze, paying special attention to the golden monograms decorating the gates." }
+  ],
+  "directionsImages": ["assets/images/ui/entrance-gates.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Hazel", "text": "How strange. There are two different golden monograms, one on each main gate." },
+    { "type": "story", "text": "She turns to you, the lead detective." },
+    { "type": "dialogue", "character": "Hazel", "text": "This can’t be a coincidence. The culprit is sending us a message, but they're making us work for it. You have the sharpest eyes, Detective. What letters can you see in the two designs?" }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Identify the letters in both golden monograms. Next, find the two that are unique—the ones that do not appear on both gates. Arrange them alphabetically. These are the initials of a location we can now eliminate."
+  },
+  "type": "location",
+  "answer": "Acorn Loft",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "AL." },
+    { "type": "dialogue", "character": "Hazel", "text": "AL... That must stand for The Acorn Loft. That’s the squirrels’ emergency winter food store, hidden high in the old oak tree." },
+    { "type": "story", "text": "Hazel shakes her head firmly." },
+    { "type": "dialogue", "character": "Hazel", "text": "But look at these gates—they’re grand, ornate, a public statement. General Scramble-nut is a soldier; his operations are practical and secret. He would never use such a fancy, obvious landmark to point to one of his hidden caches. This is another deliberate misdirection. The Acorn Loft is not a relevant location." }
+   
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "LC." },
+    { "type": "dialogue", "character": "Moo", "text": "LC! The Lost Conker! I knew it was real! Professor Hoot said it was just a myth, but the clues don’t lie!" },
+    { "type": "dialogue", "character": "Hazel", "text": "The clues don’t lie, Moo, but you’ve misinterpreted the question. Remember, Detective, we are looking for the letters that are unique—the ones that don’t show up on both sides. Let’s look again." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "I’m glad we figured that out. My brain was starting to get rusty!" },
+    { "type": "dialogue", "character": "Hazel", "text": "It’s wrought iron, Moo. And let’s stay sharp. The case isn’t closed yet." }
+  ]
+},
+
+{
+  "title": "The Locomotive Cipher",
+  "subtitle": "Clue #7",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "With your back to the ornate gates, you take the left path, continuing straight as the park unfolds around you." },
+    { "type": "story", "text": "After a short walk, you come across a magnificent sight from a bygone age: a large, green steam locomotive resting on its own piece of track." }
+  ],
+  "directionsImages": ["assets/images/ui/steam-locomotive.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Hazel", "text": "Right then. We're dealing with a very methodical mind. This isn’t a simple riddle; it’s a multi-step cipher. They’ve hidden a message here using the numbers and words all around us." },
+    { "type": "story", "text": "Moo stands beside the engine, making quiet ‘choo-choo’ noises to himself." },
+    { "type": "dialogue", "character": "Hazel", "text": "They left this for someone clever to solve. That’s you, Detective. Let’s break it down, step by step." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Find the locomotive’s original operating number from the information sign, and its new number when moved to Edinburgh Colliers. Subtract the smaller from the larger to get a key number. Count that many words into the second paragraph of the information sign to reveal a four-digit year. Add the first two digits together for your first code number, and the last two digits together for your second. Convert both into letters (A=1, B=2, etc.), then swap them. These initials reveal the location to eliminate."
+  },
+  "type": "location",
+  "answer": "Nut-tree Junction",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "NJ." },
+    { "type": "dialogue", "character": "Hazel", "text": "NJ for the Nut-tree Junction. That’s the chaotic spot where the squirrels trade gossip and acorns." },
+    { "type": "story", "text": "She looks from the precisely engineered locomotive to the path ahead." },
+    { "type": "dialogue", "character": "Hazel", "text": "Think about the mind that created this puzzle—it’s all about numbers, codes, and precise calculations. The Nut-tree Junction is the messiest, most disorganized spot in the park. Our culprit is a planner; they wouldn't base their operations there. It’s another dead end." }
+ 
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "QJ." },
+    { "type": "dialogue", "character": "Moo", "text": "QJ! The Quiet Jetty! It must be a secret dock by the stream for the villain’s getaway boat!" },
+    { "type": "dialogue", "character": "Hazel", "text": "An interesting theory, but your calculations must be off. A cipher is a delicate thing, Detective. Let’s walk back through the steps—starting with the engine numbers. Every step must be perfect." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "My brain feels like it’s run out of steam!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Good. Perhaps now you’ll run on brain power instead." }
+  ]
+},
+
+{
+  "title": "The Telephone Kiosk Riddle",
+  "subtitle": "Clue #8",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "You leave the locomotive behind, crossing the grass until you reach the Pilgrim's Way path. Turning left, you head downhill." },
+    { "type": "story", "text": "The path soon brings you to a crossroads where you find a curious stone building and its information sign." }
+  ],
+  "directionsImages": ["assets/images/ui/telephone-kiosk.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Moo", "text": "Aha! A secret hideout! Open up in the name of the law!" },
+    { "type": "story", "text": "Moo rattles the brown wooden door of the kiosk, then presses his ear against it." },
+    { "type": "dialogue", "character": "Moo", "text": "Hmm, it’s very quiet. Maybe they’re using a silencer?" },
+    { "type": "dialogue", "character": "Hazel", "text": "It’s a 1920s telephone kiosk, Moo. The only calls being made from here are by the spiders." },
+    { "type": "story", "text": "Hazel’s eyes scan the information sign beside the kiosk." },
+    { "type": "dialogue", "character": "Hazel", "text": "This building is a master of disguise, pretending to be made of one thing when it’s really another. The clue is in its materials, Detective. A riddle for you." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Read the ‘Telephone Kiosk’ section of the sign. Solve this riddle: I am not the timber that I imitate, nor the artificial stone that makes my structure great. The sign says my shiny roof is clad in me, a reddish-brown metal for all to see. What is the material?"
+  },
+  "type": "location",
+  "answer": "Copper Coop",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Copper." },
+    { "type": "dialogue", "character": "Hazel", "text": "Precisely. And note the context, Detective. This is real, historic copper—a valuable metal on a grand, man-made object." },
+    { "type": "story", "text": "Hazel taps her paw against the sign thoughtfully." },
+    { "type": "dialogue", "character": "Hazel", "text": "That means the tip we heard about a meeting at The Copper Coop is a false lead. Everyone knows that coop is just a wooden shed painted with cheap, copper-coloured paint. Our culprit would never confuse real metal with imitation. It’s another clumsy attempt to mislead us. We can cross that location off our list." }
+
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Stone." },
+    { "type": "dialogue", "character": "Moo", "text": "Stone! Of course! The villain has a heart of stone! And he’s as silent as a stone! It all fits!" },
+    { "type": "dialogue", "character": "Hazel", "text": "A good guess, Moo, but it doesn’t fit the riddle. The question points to the roof, and it clearly describes a metal. Let’s look again, Detective." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Well, I’m glad we solved that one! My detective senses were really dialed in!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Let’s hope you don’t get a busy signal on the next clue, Moo." }
+  ]
+},
+
+{
+  "title": "The Italian Garden Proposal",
+  "subtitle": "Clue #9",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "With your back to the kiosk, you head across the path, entering the small, beautifully maintained Italian Garden." },
+    { "type": "story", "text": "The sound of a gentle fountain fills the air, a peaceful contrast to the messy feud you’ve been investigating." }
+  ],
+  "directionsImages": ["assets/images/ui/italian-garden.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Moo", "text": "This is a lovely spot. It feels very peaceful. Are you sure there’s a clue here?" },
+    { "type": "dialogue", "character": "Hazel", "text": "The most peaceful places can hide the biggest secrets, Moo. This garden wasn’t always here. It was built on the ruins of something else, and it was almost something completely different." },
+    { "type": "story", "text": "Hazel studies the information sign with a thoughtful look." },
+    { "type": "dialogue", "character": "Hazel", "text": "History is all about plans—both the ones that succeed and the ones that fail. I think our culprit has hidden a clue in a plan that never came to be." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Read the ‘Italian Garden’ section of the sign. A man named Geddes had a specific proposal for this area after the stables were gone. What did he propose converting the area into?"
+  },
+  "type": "location",
+  "answer": "Orangery Outpost",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Orangery." },
+    { "type": "dialogue", "character": "Hazel", "text": "Exactly. But look around, Detective. Is this an Orangery? No. It’s a garden. Geddes’s plan never happened." },
+    { "type": "story", "text": "Hazel connects the dots with calm certainty." },
+    { "type": "dialogue", "character": "Hazel", "text": "That means the tip we got about the culprit’s secret base, The Orangery Outpost, is a trap! A phantom location, a place that was planned but never existed. The culprit is trying to send us chasing ghosts. We can cross it off our list." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Garden." },
+    { "type": "dialogue", "character": "Moo", "text": "The Italian Garden! Of course! The villain is hiding here, amongst the petunias!" },
+    { "type": "dialogue", "character": "Hazel", "text": "A good guess, but that’s what the place is now, not what the clue asks for. The question was about what Geddes proposed. The first sentence says he proposed converting the area into an Orangery. And an Orangery that was never built is the key—it proves the Orangery Outpost is a phantom location we can eliminate." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Well, orange you glad we figured that one out? That clue had a lot of a-peel!" },
+    { "type": "dialogue", "character": "Hazel", "text": "That’s two puns, Moo. Let’s try and concentrate. We can’t afford any slips." }
+  ]
+},
+
+{
+  "title": "The Red Box Cipher",
+  "subtitle": "Clue #10",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "You are standing in the Italian Garden, and the case has gone cold. There are no suspects left on your list." },
+    { "type": "story", "text": "Hazel points towards a different part of the stone wall. “The culprit is still out there, which means we’ve missed something.”" },
+    { "type": "story", "text": "Your team walks over to the little red book-swapping box and the nearby stone alcove with its bronze plaque." }
+  ],
+  "directionsImages": ["assets/images/ui/book-swap-box.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Hazel", "text": "We’ve been looking for grand clues. But what if the message is smaller, broken into pieces?" },
+    { "type": "story", "text": "She nods toward the little red, house-shaped box on the wall." },
+    { "type": "dialogue", "character": "Hazel", "text": "This is a place for sharing stories. Perhaps our culprit used it to share a code." },
+    { "type": "story", "text": "Her gaze shifts to the bronze plaque in the alcove." },
+    { "type": "dialogue", "character": "Hazel", "text": "And the key to that code is over there. A two-part puzzle. You’ll need to be sharp for this one, Detective." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Look at the two words written on the red box. Take the first letter of the first word and convert it to a number using A=1, B=2, etc. This is your key. Then, use that number to find the word in the same position on the bronze plaque’s main text. The first part of that long word is a name. That name is your answer."
+  },
+  "type": "suspect",
+  "answer": "Lily Pad Lizzie",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Lily." },
+    { "type": "dialogue", "character": "Hazel", "text": "Lily-pad Lizzie. The park’s most famous pond-singer—a frog with a voice bigger than she is." },
+    { "type": "story", "text": "Moo looks ready to leap into action, but Hazel holds up a paw." },
+    { "type": "dialogue", "character": "Hazel", "text": "And she’s not our culprit. This clue is subtle, hidden, requiring quiet thought. Lizzie is the opposite of quiet and subtle. If she were the mastermind, she’d have written a three-act opera about the feud by now. She’s a performer, not a plotter. We can cross her off the list." }
+   
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Area." },
+    { "type": "dialogue", "character": "Moo", "text": "Area? Is the culprit an architect?" },
+    { "type": "dialogue", "character": "Hazel", "text": "Not quite. Let’s re-examine the evidence. The first word on the red box is ‘BOOK’, so the first letter is B. B is 2 in the alphabet. That means the 2nd word on the plaque is ‘LILYPOND’. The name hidden in that word is LILY. And that belongs to Lily-pad Lizzie, who is far too dramatic to be our culprit." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Well, her story is finished! We’ve turned the page on that suspect!" },
+    { "type": "dialogue", "character": "Hazel", "text": "This isn’t a library, Moo. And the final chapter of this case still hasn’t been written." }
+  ]
+},
+
+{
+  "title": "The Peace Pole Message",
+  "subtitle": "Clue #11",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "You leave the Italian Garden the way you came in, turning right at the path. You cross over the crossroads, heading for the pavilion building." },
+    { "type": "story", "text": "As you walk, you spot a tall, four-sided stone monument standing in the grass to your left. This is the Peace Pole." }
+  ],
+  "directionsImages": ["assets/images/ui/peace-pole.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Moo", "text": "Wow, look at all the weird writing. It’s like a menu in a fancy restaurant that you can’t understand." },
+    { "type": "dialogue", "character": "Hazel", "text": "It’s the same message in four different languages, Moo. It’s a symbol of unity." },
+    { "type": "story", "text": "Hazel studies the elegant English inscription, carved into one of the faces." },
+    { "type": "dialogue", "character": "Hazel", "text": "The message is simple, but the culprit might have used it to hide a number. A simple number can be a very powerful clue. It’s your turn, Detective. Let’s see what you can find." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Look at the English inscription on the Peace Pole. Count the number of words in the message. That number is your next clue."
+  },
+  "type": "location",
+  "answer": "Five Arch Bridge",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Five." },
+    { "type": "dialogue", "character": "Hazel", "text": "Five… That must be a pointer to The Five-Arch Bridge down in the Glen. It seems obvious." },
+    { "type": "story", "text": "Hazel shakes her head slowly." },
+    { "type": "dialogue", "character": "Hazel", "text": "But it’s a trap. The message here is ‘May Peace Prevail On Earth’—unity, a single purpose. The number five represents division. Our culprit wouldn’t use two symbols that contradict each other. It’s a deliberate misdirection. The bridge is irrelevant." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Four." },
+    { "type": "dialogue", "character": "Moo", "text": "Four! Like the four seasons! The culprit is Mother Nature! We can’t arrest Mother Nature!" },
+    { "type": "dialogue", "character": "Hazel", "text": "A noble thought, but your counting is off, Moo. Let’s check together: ‘May’ is one, ‘Peace’ is two, ‘Prevail’ is three, ‘On’ is four, ‘Earth’ is five. The answer is five. And that points to The Five-Arch Bridge—but as a trap, not a truth." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Well, that’s another location we can say peace out to!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Let’s hope your puns don’t divide our attention, Moo. We need to stay united on this." }
+  ]
+},
+
+{
+  "title": "The War Blocks Cipher",
+  "subtitle": "Clue #12",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "Hazel, now convinced the culprit is a military strategist, suggests a change in tactics. “A good general surveys the whole battlefield,” she says, her nose twitching." },
+    { "type": "story", "text": "She leads you and Moo back past the front of the pavilion, taking the left path. At the end, she turns left again, guiding you along the trail until she stops at a set of large, weathered concrete blocks and a historical information sign." }
+  ],
+  "directionsImages": ["assets/images/ui/war-blocks.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Moo", "text": "Giant sugar lumps!" },
+    { "type": "story", "text": "Moo pats a concrete block proudly." },
+    { "type": "dialogue", "character": "Hazel", "text": "These are defensive blocks from the war, Moo. This is a serious place." },
+    { "type": "story", "text": "Hazel’s eyes scan the sign beside the blocks." },
+    { "type": "dialogue", "character": "Hazel", "text": "Our culprit is using military-grade tactics, so they may be using military-grade codes. This is another keyword cipher. Let’s use the keyword from this sign to decode the name they’ve hidden here." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Use the keyword cipher grid. Answer the question pairs to get Row and Column numbers. <BR>1) 2nd last digit of the year the Home Guard was formed in May = Row. Last digit of the year of Fortress Europe = Column. <BR>2) Third digit of the year the pavilion was requisitioned = Row. The last digit of the year the Poles Command and help train the Fife Home Guard = Column. <BR>3) Last digit of the year the War in Europe ended = Row. Add the last two digits of the year Allotments were available in Pittencrieff Park = Column. <BR>Decode the letters and piece them together."
+  },
+  "type": "suspect",
+  "answer": "Private Sly",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Sly." },
+    { "type": "dialogue", "character": "Hazel", "text": "Sly… The code name for Private Sly, the weasel. He’s a known informant who sells secrets for acorns." },
+    { "type": "story", "text": "Moo looks ready to pounce, but Hazel shakes her head." },
+    { "type": "dialogue", "character": "Hazel", "text": "He isn’t our mastermind. Look at this cipher—it’s complex, carefully planned, military-grade. Private Sly is a back-alley gossip, not a strategist. Someone is framing him to throw us off their scent. We can cross him off the list." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "TMZ." },
+    { "type": "dialogue", "character": "Moo", "text": "TMZ? Is that a celebrity gossip channel? Is the culprit a famous actor?!" },
+    { "type": "dialogue", "character": "Hazel", "text": "A funny idea, but the numbers tell a different story. The Home Guard clue gives us Row 4, Fortress Europe gives us Column 3—that’s S. The next pair gives us L, and the last gives us Y. The name is SLY. And that belongs to a weasel who isn’t clever enough to have made this puzzle. He’s being framed." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Well, you can’t weasel your way out of that logic! I guess he’s not our guy." },
+    { "type": "dialogue", "character": "Hazel", "text": "Indeed. But the fact that our culprit is framing others means they’re getting nervous. We’re getting closer." }
+  ]
+},
+
+{
+  "title": "The Peacock Memorial Puzzle",
+  "subtitle": "Clue #13",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "Hazel's instincts tell her the trail hasn’t gone cold. “The culprit is clever, but they've left a path,” she insists, her gaze sharp and focused." },
+    { "type": "story", "text": "She leads the way as your team continues down the path, dodging left into the cool shade of the tree tunnel." },
+    { "type": "story", "text": "When you exit on the other side, she guides you to take the first right, which leads into a quiet, respectful corner of the park where you will find your next clue." }
+  ],
+  "directionsImages": ["assets/images/ui/memorial-wall.jpg"],
+  "clueStory": [
+    { "type": "story", "text": "You arrive in an area with a wall of painted names and several memorial plaques." },
+    { "type": "dialogue", "character": "Hazel", "text": "This isn’t just a collection of memorials. It’s a multi-part code. One piece of information leads to the next." },
+    { "type": "dialogue", "character": "Hazel", "text": "The culprit is testing us, seeing if we’re clever enough to follow the trail of clues they’ve left woven into the history of these birds. Let’s prove that we are." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "First, look at the white wall with the names painted on it. Find the only name written in blue paint. Next, find the memorial plaque for that same peacock. Make a note of his age when he died. This number is your key. Finally, find the plaque for the other peacock who died in the month that matches your key number. What is this second peacock's full, two-word name?"
+  },
+  "type": "suspect",
+  "answer": "King Louie",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "King Louis." },
+    { "type": "dialogue", "character": "Hazel", "text": "Indeed. That must be a clue pointing to King Louie, the capuchin monkey who has declared himself king of the treetops." },
+    { "type": "story", "text": "Moo looks ready to go and arrest him, but Hazel stops him with a raised paw." },
+    { "type": "dialogue", "character": "Hazel", "text": "But he’s not our culprit. This plaque is a memorial, a tribute to a respected peacock who has passed on. It’s a symbol of dignity. King Louie the monkey is a fool, a jester who spends his days throwing berries at passers-by. Our culprit uses meaningful symbols. They would never use a tribute to a respected figure to point to a prankster. It would be an insult. The monkey is not our mastermind." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Malcolm." },
+    { "type": "dialogue", "character": "Hazel", "text": "A good start, Detective, but that’s only the first part of the puzzle. Malcolm is the name in blue. His plaque says he was aged 11. We then had to find the other plaque for a peacock who died in the month numbered 11. That peacock’s full name is King Louis." },
+    { "type": "dialogue", "character": "Hazel", "text": "And that name points to King Louie the monkey, a jester who is clearly not our serious, calculating culprit. We can cross him off the list." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Well, I’m glad we could de-throne him from our suspect list!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Let’s not get caught up in the royal fanfare, Moo. The case isn’t over." }
+  ]
+},
+
+{
+  "title": "The Sensory Garden Anagram",
+  "subtitle": "Clue #14",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "Hazel, with a new determination in her step, leads you back up to the main path. “The culprit is playing games with us,” she murmurs. “Using myths and legends to distract us.”" },
+    { "type": "story", "text": "You turn right, cross over the crossroads, and head straight. As the grass opens up on the left, she guides you across it towards the orange building, but stops short at the entrance to a small, walled garden." }
+  ],
+  "directionsImages": ["assets/images/ui/sensory-garden.jpg"],
+  "clueStory": [
+    { "type": "story", "text": "A wave of beautiful smells washes over you as you arrive." },
+    { "type": "dialogue", "character": "Moo", "text": "Ooh, lavender! And... mint! And... is that cake?" },
+    { "type": "dialogue", "character": "Hazel", "text": "No cake, Moo. This garden is a place of feeling, of experience. And I think our clever culprit has used that very idea to hide another message in plain sight." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Look at the first word on the wooden sign. Take its first four letters. They describe the very feeling this garden is designed for. Rearrange those four letters to spell a famous name. What is that name?"
+  },
+  "type": "suspect",
+  "answer": "Loch Ness Monster",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Ness." },
+    { "type": "dialogue", "character": "Hazel", "text": "Precisely. As in, the Loch Ness Monster." },
+    { "type": "story", "text": "Moo immediately hides behind your leg, his eyes wide." },
+    { "type": "dialogue", "character": "Hazel", "text": "But think, Detective. This is a Sensory Garden, a place of real, tangible things you can see, smell, and touch. It’s all about clear evidence. The Loch Ness Monster is a legend, a creature famous for a lack of clear evidence. The two are opposites. Our culprit is a strategist, not a fantasist. They’re trying to distract us with myths. We can cross Nessie off our list." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Snee?" },
+    { "type": "dialogue", "character": "Moo", "text": "Are you sure? I can’t make a monster out of that!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Let’s look at the logic again. The first word on the sign is ‘SENSORY’. The first four letters are S-E-N-S, which sound like ‘sense’. Rearranged, they spell the name NESS. And that’s pointing to the Loch Ness Monster—who we can safely eliminate as our culprit." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Well, that makes perfect sense to me! I’m glad we don’t have to fight a monster!" },
+    { "type": "dialogue", "character": "Hazel", "text": "The only monsters we’re fighting are lies, Moo. And we’re winning." }
+  ]
+},
+
+{
+  "title": "The Pittencrieff House Cipher",
+  "subtitle": "Clue #15",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "Hazel dismisses the last clue with a flick of her tail. “Myths and legends are for storybooks. We need facts.”" },
+    { "type": "story", "text": "She looks up towards the grand, orange building on the hill. “And that house is full of them.”" },
+    { "type": "story", "text": "Your team continues heading for the orange building, Pittencrieff House, its long history waiting to be discovered." }
+  ],
+  "directionsImages": ["assets/images/ui/pittencrieff-house.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Moo", "text": "Ooh, it looks a bit spooky. Do you think it’s haunted by the ghost of a detective who couldn’t solve a case?" },
+    { "type": "dialogue", "character": "Hazel", "text": "It’s not haunted, Moo. It’s a treasure trove of history." },
+    { "type": "story", "text": "Hazel’s eyes are drawn to the different plaques and carvings around the building." },
+    { "type": "dialogue", "character": "Hazel", "text": "The culprit has been using history to hide their tracks this whole time. The answer we need is here, but it’s been broken into pieces across three different signs. We’ll need all our wits for this one, Detective." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Step 1: Go to the inscription above the main doorway. Find the two misspelled words. Add the number of misspelled words to the total number of letters in those words. This gives your key number. Step 2: On the dark blue Forbes plaque, count that many words back from the very end of the text. This reveals a four-digit year. Step 3: From that year, calculate two new keys: Key A = add the first two digits. Key B = add the last two digits, and if it’s two digits, add those digits together. Step 4: On the round blue plaque, use Key A to count words from the start and Key B to count words back from the end. Put those two words together to reveal the name of our suspect."
+  },
+  "type": "suspect",
+  "answer": "Laird Lorimer",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Laird Lorimer." },
+    { "type": "dialogue", "character": "Moo", "text": "Is that a type of fancy chair?" },
+    { "type": "dialogue", "character": "Hazel", "text": "No, Moo. It must refer to Beauregard Lorimer, the beaver architect who is always boasting about the things he’s ‘built’." },
+    { "type": "story", "text": "Hazel shakes her head firmly." },
+    { "type": "dialogue", "character": "Hazel", "text": "But he’s not our culprit. This puzzle is all about history—ancient inscriptions, old plaques. Beauregard is obsessed with new construction; he calls anything built before last year ‘a teardown’. He has no respect for the past. Our culprit is a historian; Beauregard is a salesman. He’s not our guy." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Lorimer Built?" },
+    { "type": "dialogue", "character": "Hazel", "text": "An interesting result, but a small miscalculation can lead us astray. Let’s check the steps: the inscription gives us 10, the Forbes plaque gives us 1759, the maths produces keys 8 and 5. The blue plaque then gives us 'built' and 'Lorimer'. The name is Built Lorimer, pointing to Beauregard Lorimer—who we can rule out." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Well, I’m glad we could knock that suspect down! This case is built on a solid foundation!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Let’s not get ahead of ourselves, Moo. The culprit is still out there, building their own plans." }
+  ]
+},
+
+{
+  "title": "The Ambassador’s Bench",
+  "subtitle": "Clue #16",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "You are standing near the grand Pittencrieff House, the last complex clue finally solved. Moo lets out a huge yawn." },
+    { "type": "dialogue", "character": "Moo", "text": "All this detective work is tiring! Is there anywhere we can rest our hooves?" },
+    { "type": "story", "text": "His eyes fall upon a smart granite bench sitting on a nearby path, a perfect spot to take a break." }
+  ],
+  "directionsImages": ["assets/images/locations/Unstable_Scaffolding.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Moo", "text": "Finally, a place to sit!" },
+    { "type": "story", "text": "Moo trots eagerly towards the bench." },
+    { "type": "dialogue", "character": "Hazel", "text": "Not so fast. Never sit on the evidence." },
+    { "type": "story", "text": "Hazel gestures towards the neat lettering carved into the stone." },
+    { "type": "dialogue", "character": "Hazel", "text": "This bench was placed here for a reason, and it might contain a clue for a reason too. An important person from a powerful country unveiled this. Let’s see what he left behind for us." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Read the inscription carefully. It names an ambassador from a powerful country. What is the two-letter abbreviation of the ambassador’s country?"
+  },
+  "type": "location",
+  "answer": "Unstable Scaffolding",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "US." },
+    { "type": "dialogue", "character": "Hazel", "text": "Precisely. And those initials must be a pointer to a location on our map: The Unstable Scaffolding. We heard rumours the culprit was using it as a lookout post." },
+    { "type": "story", "text": "Hazel studies the solid granite bench for a long moment." },
+    { "type": "dialogue", "character": "Hazel", "text": "But this is another of the culprit’s tricks. This clue comes from a solid, permanent, stable monument. Our culprit is a master of symbols. They would never use a symbol of stability to point us to something unstable. It’s a contradiction. The scaffolding is a distraction." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "UK." },
+    { "type": "dialogue", "character": "Hazel", "text": "A good spot, Detective, but that’s the country he was ambassador to. The clue is about the country he was from. The text says he was the ‘US Ambassador to the UK’. The answer is US." },
+    { "type": "dialogue", "character": "Hazel", "text": "And those initials point to The Unstable Scaffolding. But since this clue comes from a solid granite bench, it would never lead us to something unstable. It's a false trail, meant to waste our time." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Phew, I’m glad we don’t have to climb any unstable scaffolding! My hooves aren’t built for that!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Let’s hope your brain is built for solving this case, Moo. We’re still not finished." }
+  ]
+},
+
+{
+  "title": "The Bronze Trail Puzzle",
+  "subtitle": "Clue #17",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "Your team is still in the historic area near Pittencrieff House when Hazel suddenly stops, staring at the ground with a slow, thoughtful wag of her tail." },
+    { "type": "dialogue", "character": "Hazel", "text": "Well now… that’s a familiar face." },
+    { "type": "story", "text": "You and Moo look down and see a large, circular bronze map set into the paving stones, depicting a famous trail from long ago." }
+  ],
+  "directionsImages": ["assets/images/ui/bronze-map.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Moo", "text": "It’s a giant coin! We’re rich! We can buy a lifetime supply of carrots!" },
+    { "type": "dialogue", "character": "Hazel", "text": "It’s a map, Moo. The Forbes Trail. We saw the plaque for John Forbes on the wall of the house. This must be the route he took." },
+    { "type": "story", "text": "Hazel traces the engraved lines on the bronze with her eyes." },
+    { "type": "dialogue", "character": "Hazel", "text": "Our culprit has been leading us on a trail of their own. Perhaps the secret is in following this one for a moment." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Place your finger on the town of CARLISLE. Follow the edge of the bronze map clockwise and find the third town your finger reaches. Take the first three letters of that town’s name as your clue."
+  },
+  "type": "location",
+  "answer": "Ball Pit Play Area",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "PIT." },
+    { "type": "dialogue", "character": "Hazel", "text": "Pit… That must be a reference to The Ball Pit Play-area. A place of modern fun and games." },
+    { "type": "story", "text": "Hazel shakes her head, her gaze fixed firmly on the solemn bronze map." },
+    { "type": "dialogue", "character": "Hazel", "text": "But this is another misdirection. Look at the source of the clue—a serious, historical map of a military campaign. Our culprit is obsessed with history and symbols. They would never use a clue from an old, solemn monument to point us to a modern, frivolous play-area. The tone is completely wrong. It’s another symbolic contradiction. We can cross the Ball Pit off our list." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "PHI?" },
+    { "type": "dialogue", "character": "Hazel", "text": "Let’s re-check our route. Start at CARLISLE, move clockwise. The first town you pass is PHILADELPHIA, the second is PITTSBURGH. The first three letters are P-I-T. That’s the clue." },
+    { "type": "dialogue", "character": "Hazel", "text": "And since it points symbolically to the Ball Pit Play-area, we know it’s another deliberate distraction. The culprit would never mix solemn history with frivolous play. We can eliminate it." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "A ball pit? Aww, I wanted to play in it! I’m having a ball on this case!" },
+    { "type": "dialogue", "character": "Hazel", "text": "This isn’t about having a ball, Moo. It’s about solving a crime. Let’s focus." }
+  ]
+},
+
+{
+  "title": "The Ha Ha Wall Pun",
+  "subtitle": "Clue #18",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "With the grand orange house at your back, Hazel leads the team left, guiding you towards the big glass house that glints in the distance." },
+    { "type": "story", "text": "As you enter the lush gardens that surround it, she stops the team at a large green information sign, ready for the next piece of the puzzle." }
+  ],
+  "directionsImages": ["assets/images/ui/gardens-sign.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Moo", "text": "Ooh, a giant greenhouse! Do you think they’re growing giant, prize-winning carrots in there? Let’s investigate!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Patience, Moo. Before we get to the Glasshouse, we need to understand the garden. It has some very unusual features." },
+    { "type": "story", "text": "Hazel’s eyes flick across the board with faint amusement." },
+    { "type": "dialogue", "character": "Hazel", "text": "One of them sounds like a punchline to a joke. A perfect place to hide a clue." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Read the sign carefully. Find the funny, three-word name of the special, sunken feature. Take the last word of that name. It sounds like a type of animal, which will identify our next suspect."
+  },
+  "type": "suspect",
+  "answer": "Wally the Wallaby",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "The Ha Ha Wall… 'Wall' sounds like Wallaby. That must be Wally the Wallaby." },
+    { "type": "dialogue", "character": "Hazel", "text": "Exactly. A Wallaby — Wally the Wallaby, the new exchange student. A brilliant deduction." },
+    { "type": "story", "text": "Moo perks up, ready to hop off and find him." },
+    { "type": "dialogue", "character": "Hazel", "text": "But no, he’s not our culprit. The Ha Ha Wall is a classic feature of British landscape design from the 18th century. Wally only arrived last week; he wouldn’t know the first thing about this kind of history. The subject matter is far too obscure for him. He’s being framed." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Umm… Hedge?" },
+    { "type": "dialogue", "character": "Hazel", "text": "Not quite. Let’s break it down. The funny, two-word name is 'Ha Ha Wall'. The last word is 'Wall'. 'Wall' sounds like 'Wallaby'. That points to Wally the Wallaby." },
+    { "type": "dialogue", "character": "Hazel", "text": "But since he’s a newcomer with no connection to 18th-century garden design, he’s clearly not the mastermind. He’s a decoy." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "A wallaby! Good thing we cleared him. I wouldn’t want to get into a hopping contest with him!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Let’s try to hop to the correct conclusion ourselves, Moo. The case is still open." }
+  ]
+},
+
+{
+  "title": "The Pineapple Finial",
+  "subtitle": "Clue #19",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "Your team follows the path into the Laird's Garden, turning right at the entrance to find a crossroads." },
+    { "type": "story", "text": "One path leads out of the garden, but Hazel stops you before you can move on, her eyes fixed on the ornate entrance gate and the strange decoration on top of its post." }
+  ],
+  "directionsImages": ["assets/images/ui/lairds-gatepost.jpg000000000000000000"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Moo", "text": "Ooh, a giant metal fruit! Is it ripe? I’m a bit peckish." },
+    { "type": "dialogue", "character": "Hazel", "text": "It’s a carving, Moo. Not a snack. But it’s a very strange choice for a gatepost in Scotland." },
+    { "type": "dialogue", "character": "Hazel", "text": "And when things are strange, they’re often clues. The answer isn’t the fruit itself, but a name hidden within its name." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Identify the fruit carved on top of the gatepost. Then, find a four-letter name hidden inside that fruit’s name. That name matches one of our suspects."
+  },
+  "type": "suspect",
+  "answer": "Captain Pine",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "The fruit is a pineapple, and inside it is the name 'Pine' — that points to Captain Pine." },
+    { "type": "dialogue", "character": "Hazel", "text": "Exactly. Captain Pine, the fierce pine marten. He’s certainly tough enough to be our culprit." },
+    { "type": "story", "text": "Hazel’s eyes narrow as she examines the gatepost again." },
+    { "type": "dialogue", "character": "Hazel", "text": "But this is far too simple. After all those ciphers and layered puzzles, this is just a beginner’s word trick. It’s a clumsy attempt to frame a soldier, not the work of a mastermind. Captain Pine isn’t our general." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Is it… Apple?" },
+    { "type": "dialogue", "character": "Hazel", "text": "Close, but not the hidden name. The fruit is a pineapple, and the four-letter name inside it is PINE. That points directly to Captain Pine." },
+    { "type": "dialogue", "character": "Hazel", "text": "But again, this puzzle is too simple to be from our culprit. It’s a trap to mislead us. The Captain is innocent." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Captain Pine! It would have taken a lot of pine-esse to catch him!" },
+    { "type": "dialogue", "character": "Hazel", "text": "It’s 'finesse', Moo. And he’s not guilty. Let’s keep looking for the real mastermind." }
+  ]
+},
+
+{
+  "title": "The Crossroads Cipher",
+  "subtitle": "Clue #20",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "After a moment's thought at the garden gate, the team follows your directions, walking to the far end of the gardens to exit." },
+    { "type": "story", "text": "A right turn leads you to a crossroads, where a smart green signpost points the way to several key park locations — a literal crossroads in your investigation." }
+  ],
+  "directionsImages": ["assets/images/ui/crossroads-signpost.jpg"],
+  "clueStory": [
+    { "type": "dialogue", "character": "Hazel", "text": "Well, this is appropriate. We’ve reached a crossroads in our case. We have no suspects, and the trail is full of false leads." },
+    { "type": "dialogue", "character": "Moo", "text": "So… which way do we go?" },
+    { "type": "dialogue", "character": "Hazel", "text": "We don’t go anywhere just yet. The sign itself is the clue. The culprit has hidden a message across all the different signs. It’s their most complicated puzzle yet, and they want us to get lost. We won’t." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "First, identify the three signs: the one with the most words, the one with the least words, and the one that’s in between. Then solve step by step:\n\n1. Count the words on the least sign. Use that number to find the letter at that position on the most sign.\n2. Count the words on the ‘neither’ sign. Use that number to find the letter at that position on the same sign.\n3. Count the total number of signs with text. On the most sign, find the word at that position, then take the letter at that same position within that word.\n4. Count the words on the ‘neither’ sign again. Use that number to count back from the end of that sign to find the letter.\n5. Count the total number of signs with text again. Use that number to count back from the end of the ‘most’ sign to find the letter. <BR>Put the five letters together to reveal the word — and with it, the next location we can cross off."
+  },
+  "type": "location",
+  "answer": "Whispering Waterfall",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "The letters spell WATER." },
+    { "type": "dialogue", "character": "Hazel", "text": "Water… after all that, the answer is just water. It must be pointing us towards The Whispering Waterfall." },
+    { "type": "story", "text": "Hazel frowns, then shakes her head." },
+    { "type": "dialogue", "character": "Hazel", "text": "But look at the style of this puzzle — complex, layered, all about logic. The waterfall is a place of myths and legends, of mystery and superstition. Our culprit would never use such a plain, literal word to point to such a fanciful place. It’s another distraction. The waterfall is irrelevant." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "I can’t get the word… maybe it’s something else?" },
+    { "type": "dialogue", "character": "Hazel", "text": "Let’s break it down. Least sign has 1 word, so the 1st letter of the most sign is W. Neither has 2 words, so the 2nd letter there is A. Total signs = 3, so the 3rd word of the most sign is Nethertown, and its 3rd letter is T. Counting back on the neither sign gives us E and R. The word is WATER." },
+    { "type": "dialogue", "character": "Hazel", "text": "And that word, simple and literal, would never point us to a mystical place like The Whispering Waterfall. It’s a trap, and we can cross it off the list." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Water! This case is making my head swim! I'm getting bogged down in the details!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Let’s keep our heads above water, Moo. The culprit is bound to make a splash soon." }
+  ]
+},
+
+{
+  "title": "The Glen’s Scientific Secret",
+  "subtitle": "Clue #21",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "Your team leaves the crossroads and follows the arrow for the Woodland Walk." },
+    { "type": "story", "text": "The path takes you to a T-junction, where you turn left as instructed." },
+    { "type": "story", "text": "Further along, you find the next clue waiting for you: a large information sign all about 'The Glen' and the many creatures that live within it." }
+  ],
+  "clueStory": [
+    { "type": "dialogue", "character": "Moo", "text": "Ooh, look! It’s General Scramble-nut! Should we try to interrogate the sign?" },
+    { "type": "dialogue", "character": "Hazel", "text": "Don’t be ridiculous, Moo. Look here, at the wildlife panels. The culprit has been using clever, academic clues. See how each animal has a scientific name in brackets? That’s where the secret is. It’s a test of your observation skills, Detective." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Look closely at all the wildlife panels on the sign. Find the scientific name that repeats the same word twice. The more common, everyday name for that creature is your answer."
+  },
+  "type": "suspect",
+  "answer": "Buzzard Aldrin",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Buzzard." },
+    { "type": "dialogue", "character": "Hazel", "text": "Precisely. And that must be a clue about the famous old adventurer, Buzzard Aldrin." },
+    { "type": "story", "text": "Moo looks up at the sky, as if expecting to see him fly past in a rocket." },
+    { "type": "dialogue", "character": "Hazel", "text": "But he’s not our culprit. The sign says buzzards here are ‘often seen circling high over the Glen’. They’re watchers from a distance. Buzzard Aldrin is the same — his head is in the clouds, dreaming of his glory days. He’s not involved in feuds on the ground." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Rabbit?" },
+    { "type": "dialogue", "character": "Hazel", "text": "A good try, but let’s check the scientific names again. The Buzzard’s scientific name is ‘Buteo buteo’—the same word repeated. The answer is Buzzard." },
+    { "type": "dialogue", "character": "Hazel", "text": "And that points to Buzzard Aldrin, who is a watcher, not a schemer. We can cross him off the list." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Well, I guess that suspect has flown the coop! Time for us to buzz off to the next clue!" },
+    { "type": "dialogue", "character": "Hazel", "text": "One pun is sufficient, Moo. Let’s stay grounded in reality." }
+  ]
+},
+
+{
+  "title": "The Lawyers’ Orchard Calculation",
+  "subtitle": "Clue #22",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "The team leaves the area of The Glen sign, and Hazel guides you along the winding path until it reaches an exit gate." },
+    { "type": "dialogue", "character": "Hazel", "text": "Not this way. The culprit is trying to make us run in circles." },
+    { "type": "story", "text": "Your team soon arrives at a tranquil green space dotted with young trees, with a sign at the entrance identifying it as The Lawyers’ Orchard." }
+  ],
+  "clueStory": [
+    { "type": "dialogue", "character": "Moo", "text": "The Lawyers’ Orchard! Does that mean the apples and pears are very good at arguing?" },
+    { "type": "dialogue", "character": "Hazel", "text": "It means the clue here is likely to be very tricky, full of fine print and complex clauses. This sign is covered in names and numbers. The culprit has hidden a code in the statistics. It will take a sharp mind to unravel it." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Count the total number of funders listed on the right-hand side of the sign. Count the number of unique Apple Varieties. Subtract the varieties from the funders. Then add the number of Pear Varieties. This gives your key number. Count down that many places in the Apple Varieties list. The name you find is your answer."
+  },
+  "type": "suspect",
+  "answer": "Katy Canary",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Katy." },
+    { "type": "dialogue", "character": "Hazel", "text": "Katy Canary, of course. The park’s most famous songbird." },
+    { "type": "story", "text": "Moo flutters his hooves, as though expecting her to burst into song." },
+    { "type": "dialogue", "character": "Hazel", "text": "But she’s not our culprit. This clue came from precise numbers and logic in the Lawyers’ Orchard. Katy is all glitter, feathers, and performance — a creature of emotion, not calculation. She’s a false lead. We can cross her off the list." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Golden Delicious?" },
+    { "type": "dialogue", "character": "Hazel", "text": "Not quite, Detective. Let’s check the figures again: 12 funders, 9 apple varieties, 12-9 = 3. Add 2 pear varieties gives 5. The 5th apple down the list is Katy." },
+    { "type": "dialogue", "character": "Hazel", "text": "That name points to Katy Canary. A performer, not a plotter. She’s not our mastermind." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Well, I'm glad she's not the culprit! Her songs are a bit too tweet for my taste!" },
+    { "type": "dialogue", "character": "Hazel", "text": "We're detectives, Moo, not music critics. Let’s keep moving." }
+  ]
+},
+
+{
+  "title": "The Scholar’s Secret",
+  "subtitle": "Clue #23",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "Your team follows the winding path with the burn on your left. You ignore the first bridge, pressing on until you reach the distinctive green bridge with blue pheasants next to a waterfall." },
+    { "type": "story", "text": "Hazel leads you across it, and just on the other side, tucked into the hillside, you find a small, grated well and its historical signs." },
+    { "type": "dialogue", "character": "Moo", "text": "Ooh, a secret cave! Do you think William Wallace left any treasure in there? Maybe a giant, golden shortbread?" },
+    { "type": "dialogue", "character": "Hazel", "text": "He was fleeing for his life, Moo, not packing a picnic. Look closer — two signs, telling the same story. Or are they?" }
+  ],
+  "clueStory": [
+    { "type": "dialogue", "character": "Hazel", "text": "A good detective always cross-references their sources. There’s a name on one that’s missing from the other. That’s our clue." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Read both signs — the large green one and the small metal one. A two-word name appears on the small metal plaque that is not mentioned at all on the large green sign. Once you have the name, take the initials. These are the initials of a location you can cross off."
+  },
+  "type": "location",
+  "answer": "Peacocks Gymnasium",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Patrick Geddes." },
+    { "type": "dialogue", "character": "Hazel", "text": "Exactly. The initials are P.G. That must be a clue for The Peacocks' Gymnasium." },
+    { "type": "dialogue", "character": "Moo", "text": "A peacock gym?! Do they just preen in front of mirrors and work on their flys all day?" },
+    { "type": "dialogue", "character": "Hazel", "text": "It’s another misdirection. Geddes was a serious scholar — a botanist, a planner. The Peacocks' Gymnasium is about vanity and showing off. Our culprit would never confuse the two. It’s a false lead." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "I can’t find it…" },
+    { "type": "dialogue", "character": "Hazel", "text": "It isn’t on the big green sign. The smaller metal plaque mentions Sir Patrick Geddes. The initials are P.G." },
+    { "type": "dialogue", "character": "Hazel", "text": "Those initials point to The Peacocks' Gymnasium — but the symbolism is all wrong. Geddes was about science and planning, not vanity. It’s a distraction." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "A peacock gym! I bet they just work on their flys all day!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Let’s try to exercise some restraint with the puns, Moo. We’re getting close." }
+  ]
+},
+
+{
+  "title": "The Fortress Riddle",
+  "subtitle": "Clue #24",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "With the last clue solved, Hazel scans the area. “The culprit is leading us deeper into the history of this place,” she says, pointing down a path." },
+    { "type": "story", "text": "Your team follows her lead, the path winding through the Glen. You ignore the first path on the right, plunging instead under a cool stone tunnel." },
+    { "type": "story", "text": "After emerging on the other side, Hazel bypasses another path to the right, her eyes fixed on a bridge ahead. “We’re not crossing that,” she says decisively, continuing straight ahead and pointing to a steep set of steps on the right." },
+    { "type": "story", "text": "At the top of the path, you find the signs for Malcolm Canmore's Tower." },
+    { "type": "dialogue", "character": "Hazel", "text": "Malcolm Canmore’s Tower! The very foundation of Dunfermline." },
+    { "type": "dialogue", "character": "Moo", "text": "Drynkyng the bluid-red wyne… Do you think they have any left? A detective gets very thirsty." },
+    { "type": "dialogue", "character": "Hazel", "text": "Focus, Moo. The real clue is in the history lesson. The sign explains the three Celtic words that make up the town’s name. The culprit has hidden a message in one of them." }
+  ],
+  "clueStory": [
+    { "type": "dialogue", "character": "Hazel", "text": "Read the big green sign to learn of the past, Of three Celtic words, whose meanings have last. Your clue is the shortest, a word of just three, That means ‘a hill or a fort’ for all to see." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Find the shortest Celtic word listed on the Malcolm Canmore's Tower sign — just three letters long. It means 'a hill or a fort'. This is your clue."
+  },
+  "type": "location",
+  "answer": "Dragons Dungeon",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Dun." },
+    { "type": "dialogue", "character": "Hazel", "text": "Dun. That sounds like the start of the word ‘Dungeon’. It must be a clue for the legendary Dragon’s Dungeon." },
+    { "type": "dialogue", "character": "Hazel", "text": "But it’s a trick. ‘Dun’ means ‘a hill or a fort’—a safe, defensive place. A dungeon is the opposite, a deep, dangerous prison. Our culprit would never use those opposing symbols. The dungeon is a false trail." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Lin." },
+    { "type": "dialogue", "character": "Hazel", "text": "That is one of the Celtic words, but it doesn’t fit the riddle. The clue asks for the three-letter word meaning ‘a hill or a fort’. That word is Dun." },
+    { "type": "dialogue", "character": "Hazel", "text": "And Dun sounds like Dungeon, which seems to point to the Dragon’s Dungeon. But again, it’s a contradiction. The culprit wants to mislead us. The dungeon can be crossed off the list." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "A Dragon's Dungeon! I’m glad we don’t have to go there! I wouldn’t want to get into a fiery argument with a dragon!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Let’s stay focused, Moo. The culprit isn’t a mythical beast — they’re very real." }
+  ]
+},
+
+{
+  "title": "The Royal Anagram",
+  "subtitle": "Clue #25",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "From the steps you climbed to solve the last clue, you turn right and then immediately right again." },
+    { "type": "story", "text": "Hazel confidently leads you and Moo as you follow the signs for the tower, which take you right to the ancient stone ruins themselves, and another information sign." },
+    { "type": "dialogue", "character": "Moo", "text": "Is that it? It’s more of a Tumble-down Tower than a tall one!" },
+    { "type": "dialogue", "character": "Hazel", "text": "These walls are almost a thousand years old, Moo. Show some respect." },
+    { "type": "story", "text": "She gestures to the information sign, which shows a drawing of the tower in its glory days and a family tree." },
+    { "type": "dialogue", "character": "Hazel", "text": "Our culprit loves history. I’ll bet they’ve used the royal family to hide another clue." }
+  ],
+  "clueStory": [
+    { "type": "dialogue", "character": "Hazel", "text": "First, look at the family tree on the sign. Count the total number of Malcolm III's children listed. This is your key number." },
+    { "type": "dialogue", "character": "Hazel", "text": "Now, look at the first paragraph of text on the sign. Use your key number to count that many words back from the very end of the paragraph. This will reveal a four-letter Latin word." },
+    { "type": "dialogue", "character": "Hazel", "text": "Finally, rearrange the letters of this Latin word to spell a new, four-letter English word. This will give you a clue to a location to cross off." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Count the children of Malcom and Mary, taking that number find the Latin word by counting backwards from the first paragraph, and rearrange the letters into an English word. That word is your clue."
+  },
+  "type": "location",
+  "answer": "Twinkle Toes Dance Hall",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "Toes." },
+    { "type": "dialogue", "character": "Hazel", "text": "Toes. That must be a clue for The Twinkle-Toes Dance Hall." },
+    { "type": "dialogue", "character": "Hazel", "text": "But the Latin word 'Esto' comes from the motto ‘Be proud of this rock’. That’s about being solid and steadfast. A dance hall is the opposite — it’s all movement and frivolity. Our culprit would never use a symbol of stability to point to a place of dancing. The dance hall is a false trail." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "I can’t work it out." },
+    { "type": "dialogue", "character": "Hazel", "text": "Let’s walk through it. There are 9 children listed. Counting 9 words back from the end of the first paragraph gives us the Latin word 'Esto'." },
+    { "type": "dialogue", "character": "Hazel", "text": "Rearrange the letters E-S-T-O and you get TOES. That points to the Twinkle-Toes Dance Hall. But again, the symbol of a steadfast rock would never connect to a place of frivolous dancing. It’s a false trail." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Twinkle-Toes! I'm glad we don’t have to go there, I’m a terrible dancer! I have two left hooves!" },
+    { "type": "dialogue", "character": "Hazel", "text": "That would explain a lot, Moo. Let’s keep moving." }
+  ]
+},
+
+{
+  "title": "The Final Filter",
+  "subtitle": "Clue #26",
+  "cypherImage": "",
+  "directions": [
+    { "type": "story", "text": "Hazel knows the end is near. 'One last piece of the puzzle, team,' she says with grim determination." },
+    { "type": "story", "text": "She leads you in the same direction you’ve been heading until you reach the main path. You turn right and continue until you reach a crossroads with the pavilion on your front left." },
+    { "type": "dialogue", "character": "Hazel", "text": "The culprit has led us in circles." },
+    { "type": "story", "text": "At the crossroads, you turn right. Hazel guides you as you follow the path until you see the ramp you entered the park from." },
+    { "type": "dialogue", "character": "Hazel", "text": "But not up there. Instead, we follow the path around the side of it, between the ramp and the play park." },
+    { "type": "story", "text": "There, half-hidden in the grass, you see it: a small blue plaque." }
+  ],
+  "clueStory": [
+    { "type": "dialogue", "character": "Hazel", "text": "This is it. We have two suspects left on our list: the serious Mervin the Supersonic Pigeon and the organised Beatrice Bumble." },
+    { "type": "dialogue", "character": "Hazel", "text": "This plaque is the final filter. It will clear one last innocent party and leave us with the truth." },
+    { "type": "dialogue", "character": "Hazel", "text": "One last observation to make, Detective. Let’s solve it together." }
+  ],
+  "task": {
+    "character": "Hazel",
+    "text": "Look at the name of the person who officially opened the play park. There are three ‘strange’ letters written directly after her name. What are these three letters? These will be the initials of the final suspect to cross off."
+  },
+  "type": "suspect",
+  "answer": "Mervin the Supersonic Pigeon",
+  "correctAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "MSP." },
+    { "type": "dialogue", "character": "Hazel", "text": "MSP — the initials of Mervin the Supersonic Pigeon. And now we know he’s innocent." },
+    { "type": "dialogue", "character": "Hazel", "text": "This plaque is for a Play Park, a place of fun and games. Mervin takes himself far too seriously; he has no time for play. Our mastermind clearly enjoys playing games. Mervin is the final red herring." }
+    
+  ],
+  "wrongAnswerReason": [
+    { "type": "dialogue", "character": "Player", "text": "I think it’s UK?" },
+    { "type": "dialogue", "character": "Hazel", "text": "Look closer at the main name on the plaque. Right after ‘Nicola Sturgeon’, you’ll see the three letters MSP. Those are the initials." },
+    { "type": "dialogue", "character": "Hazel", "text": "And those initials point to Mervin the Supersonic Pigeon. But a bird who is all business and no play can’t be our fun-loving culprit. He is our final innocent suspect." }
+  ],
+  "motivationalQuote": [
+    { "type": "dialogue", "character": "Moo", "text": "Mervin the Supersonic Pigeon! I'm glad it’s not him. We’d never be able to catch him!" },
+    { "type": "dialogue", "character": "Hazel", "text": "Indeed. But now the board is clear. There’s nowhere left for the real culprit to hide." }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ]
+}

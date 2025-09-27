@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "label": "Suspects",
+      "items": [
+        { "text": "Laird Lorimer", "image": "assets/images/suspects/laird_lorimer.jpg" },
+        { "text": "Beatrice Bea Bumble", "image": "assets/images/suspects/beatrice_bea_bumble.jpg" },
+        { "text": "Buzzard Aldrin", "image": "assets/images/suspects/buzzard_aldrin.jpg" },
+        { "text": "Captain Pine", "image": "assets/images/suspects/captain_pine.jpg" },
+        { "text": "Count Beaumont Badger", "image": "assets/images/suspects/count_beaumont_badger.jpg" },
+        
+        { "text": "Katy Canary", "image": "assets/images/suspects/katy_canary.jpg" },
+        { "text": "King Louie", "image": "assets/images/suspects/king_louie.jpg" },
+        { "text": "Leo the Lion", "image": "assets/images/suspects/leo_the_lion.jpg" },
+        { "text": "Lily Pad Lizzie", "image": "assets/images/suspects/lily_pad_lizzie.jpg" },
+        { "text": "Loch Ness Monster", "image": "assets/images/suspects/loch_ness_monster.jpg" },
+        { "text": "Mervin the Supersonic Pigeon", "image": "assets/images/suspects/mervin_the_supersonic_pigeon.jpg" },
+     
+        { "text": "Pip Quick Wing", "image": "assets/images/suspects/pip_quick_wing.jpg" },
+        { "text": "Private Sly", "image": "assets/images/suspects/private_sly.jpg" },
+        
+        { "text": "Sila the Owl", "image": "assets/images/suspects/sila_the_owl.jpg" },
+        { "text": "Wally the Wallaby", "image": "assets/images/suspects/wally_the_wallaby.jpg" }
+      ]
+    },
+    {
+      "label": "Locations",
+      "items": [
+        { "text": "Acorn Loft", "image": "assets/images/locations/acorn_loft.jpg" },
+        { "text": "Ball Pit Play Area", "image": "assets/images/locations/ball_pit_play_area.jpg" },
+        { "text": "Dragons Dungeon", "image": "assets/images/locations/dragons_dungeon.jpg" },
+        
+        { "text": "Five Arch Bridge", "image": "assets/images/locations/five_arch_bridge.jpg" },
+        { "text": "Glasshouse", "image": "assets/images/locations/glasshouse.jpg" },
+        { "text": "Mercat Cross", "image": "assets/images/locations/mercat_cross.jpg" },
+        { "text": "Nut Tree Junction", "image": "assets/images/locations/nut_tree_junction.jpg" },
+        { "text": "Orangery Outpost", "image": "assets/images/locations/orangery_outpost.jpg" },
+        { "text": "Peacocks Gymnasium", "image": "assets/images/locations/peacocks_gymnasium.jpg" },
+        { "text": "Twinkle Toes Dance Hall", "image": "assets/images/locations/twinkle_toes_dance_hall.jpg" },
+        { "text": "Whispering Waterfall", "image": "assets/images/locations/whispering_waterfall.jpg" },
+        { "text": "Unstable Scaffold", "image": "assets/images/locations/Unstable_Scaffold.jpg" },
+	{ "text": "Copper Coop", "image": "assets/images/locations/copper_coop.jpg" }
+      ]
+    }
+  ]
+}

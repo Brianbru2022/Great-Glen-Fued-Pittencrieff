@@ -1,0 +1,14 @@
+{
+  "title": "The Great Glen Feud",
+  "buttons": {
+    "viewSuspects": "View Suspects",
+    "viewObjects": "View Locations",
+    "viewCypher": "View Cypher",
+    "notebook": "Notebook",
+    "recapClue": "Recap Clue"
+  },
+  "notebookHeadings": {
+    "suspects": "Suspects",
+    "objects": "Locations"
+  }
+}

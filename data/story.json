@@ -1,0 +1,40 @@
+{
+  "story": [
+    { "type": "story", "text": "Moo pops his head out from behind a bench, a leaf still stuck to his horn." },
+    { "type": "dialogue", "character": "Moo", "text": "Ah, <span id=\"player-name-placeholder\">Junior Detective</span>! You’re here! I’ve been practicing my 'squirrel-speak' to go undercover. Ahem... Squeak, squeaky, squeaken?" },
+    { "type": "story", "text": "Hazel trots over, rolling her eyes." },
+    { "type": "dialogue", "character": "Hazel", "text": "He’s been saying ‘My trousers are full of nuts’ for ten minutes. We’re going to need your brains on this one. Welcome to the team." }
+  ],
+  "introStory": [
+    { "type": "story", "text": "You arrive at the grand entrance to Pittencrieff Park, but something is wrong. The air, usually filled with birdsong and laughter, is thick with tension." },
+    { "type": "story", "text": "A squirrel high in a chestnut tree glares down at you, chittering suspiciously." },
+    { "type": "story", "text": "Further down the path, a peacock fans its tail, not in a proud display, but like a warrior raising a shield. The park is on a knife’s edge." },
+    { "type": "story", "text": "Suddenly, a soft ‘Hoo-hoo!’ echoes from the direction of the ancient stone ruins of Malcolm Canmore's Tower. A large tawny owl swoops down, landing silently on a low wall." },
+    { "type": "dialogue", "character": "Professor Hoot", "text": "Greetings, <span id=\"player-name-placeholder\">Detective</span>s. I thank you for coming. The very soul of our park is at stake. Someone is pulling the strings, turning friend against friend. You must discover who it is." },
+    { "type": "story", "text": "He gestures with a wing towards a piece of bark with names and places neatly etched into it." },
+    { "type": "dialogue", "character": "Professor Hoot", "text": "Here are the key players and the disputed territories. Find the truth, and restore the peace." }
+  ],
+  "revealStory": [
+    { "type": "story", "text": "You’ve done it. You’ve crossed the last innocent suspect off the list. Hazel looks at your completed notes, her tail still." },
+    { "type": "dialogue", "character": "Hazel", "text": "That's it. There’s only one suspect left… Beatrice Bumble. And only one location we haven’t cleared… The Glasshouses." },
+    { "type": "story", "text": "She looks up at you, her eyes gleaming with the thrill of the final chase." },
+    { "type": "dialogue", "character": "Hazel", "text": "That must be it. The Queen Bee. And the hidden stash. Let’s go." },
+    { "type": "story", "text": "You and the team race to the Glasshouses. Inside, the air is warm and thick with the scent of tropical flowers." },
+    { "type": "story", "text": "High in the metal rafters, you see it: a huge, humming nest. And there, guarding a massive pile of acorns, is the mastermind herself, Beatrice ‘Bea’ Bumble, flanked by two of her biggest bee soldiers." },
+    { "type": "story", "text": "Bea faces you, calm and commanding." },
+    { "type": "dialogue", "character": "Beatrice Bumble", "text": "So. The great <span id=\"player-name-placeholder\">Detective</span> has solved my little puzzle." },
+    { "type": "dialogue", "character": "Moo", "text": "But why, Bea? Why start a war?" },
+    { "type": "dialogue", "character": "Beatrice Bumble", "text": "War? This wasn’t war. It was… re-structuring. The squirrels are wasteful, burying acorns and forgetting them. The peacocks are frivolous. I brought order. Efficiency." },
+    { "type": "story", "text": "She gestures to the towering acorn stash." },
+    { "type": "dialogue", "character": "Beatrice Bumble", "text": "I stole them to create a centrally controlled food supply, for the good of the park. My park." },
+    { "type": "story", "text": "Just then, Professor Hoot swoops in, followed by a flustered General Scramble-nut." },
+    { "type": "dialogue", "character": "General Scramble-nut", "text": "Your reign of terror is over, Bea!" },
+    { "type": "story", "text": "The giant stash of acorns is returned to the squirrels. The feud is officially over." },
+    { "type": "story", "text": "Bea is placed under ‘hive arrest’ for the winter and her hive is tasked with extra pollination duties for a year to make up for the chaos." },
+    { "type": "story", "text": "Professor Hoot announces that, thanks to your investigation bringing everyone together, the first Great Glen Park Council will be formed to ensure peace for all time." },
+    { "type": "dialogue", "character": "Professor Hoot", "text": "You did it, <span id=\"player-name-placeholder\">Detective</span>. You looked past the chaos and found the truth. You have brought peace to our park." },
+    { "type": "dialogue", "character": "Moo", "text": "You’re the bee’s knees, <span id=\"player-name-placeholder\">Detective</span>!" },
+    { "type": "story", "text": "For the first time all day, a real, genuine smile spreads across Hazel’s face. She gives you a knowing wink." },
+    { "type": "story", "text": "The Great Glen Feud was over." }
+  ]
+}

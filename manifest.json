@@ -1,0 +1,21 @@
+{
+  "name": "The Great Glen Feud",
+  "short_name": "Glen Feud",
+  "description": "A treasure trail game set in Pittencrieff Park.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fdfaf0",
+  "theme_color": "#36454F",
+  "icons": [
+    {
+      "src": "assets/images/ui/icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "assets/images/ui/icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}

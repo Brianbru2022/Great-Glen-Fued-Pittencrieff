@@ -1,0 +1,25 @@
+{
+  "characters": [
+    {
+      "name": "Moo",
+      "img": "assets/images/characters/moo.jpg"
+    },
+    {
+      "name": "Hazel",
+      "img": "assets/images/characters/hazel.jpg"
+    },
+    {
+      "name": "Professor Hoot",
+      "img": "assets/images/characters/hoot.jpg"
+    },
+    {
+      "name": "Robin",
+      "img": "assets/images/characters/robin.jpg"
+    },
+    {
+      "name": "Player",
+      "img": "assets/images/characters/player.jpg"
+    }
+
+  ]
+}

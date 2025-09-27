@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Menstrie Giant - Offline</title>
+    <script>
+    // Dynamically set the page title from the config file
+    fetch('data/config.json')
+        .then(response => response.json())
+        .then(config => {
+            if (config.title) {
+                document.title = config.title;
+            }
+        })
+        .catch(error => console.error("Could not load game title:", error));
+</script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #fdfaf0;
+            color: #36454F;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>You are Offline</h1>
+        <p>Please check your internet connection to continue your investigation of The Menstrie Giant.</p>
+    </div>
+</body>
+</html>

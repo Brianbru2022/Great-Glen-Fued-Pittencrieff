@@ -1,0 +1,32 @@
+{
+  "awardTiers": [
+    { "score": 3200, "img": "assets/images/awards/100.jpg", "title": "🦸 Mastermind of Mysteries", "dialogue": [
+      { "character": "Moo", "text": "“<player's name>! You’ve cracked every clue! I always knew you were secretly… a genius in disguise. Possibly disguised as a genius.”" },
+      { "character": "Hazel", "text": "“Disguised or not, <player's name> just solved everything. Meanwhile, you’re still trying to interrogate a tree.”" }
+    ]},
+    { "score": 2900, "img": "assets/images/awards/90.jpg", "title": "🕵️ Super Sleuth", "dialogue": [
+      { "character": "Moo", "text": "“<player's name>! You were magnificent — just shy of perfection! If only you’d listened to my brilliant theories about the hedges.”" },
+      { "character": "Hazel", "text": "“If <player's name> had listened to you, we’d still be questioning the birdbath. Good work, <player's name>.”" }
+    ]},
+    { "score": 2400, "img": "assets/images/awards/75.jpg", "title": "🔍 Clever Clue-Hound", "dialogue": [
+      { "character": "Moo", "text": "“<player's name>, you sniffed out most of the trail! You’re practically honorary cow-detective now.”" },
+      { "character": "Hazel", "text": "“They did well, Moo. But let’s not pretend a cow has ever solved anything.”" }
+    ]},
+    { "score": 1600, "img": "assets/images/awards/50.jpg", "title": "🐾 Bumbling Bloodhound", "dialogue": [
+      { "character": "Moo", "text": "“Ah, <player's name> — you stumbled, you fumbled, but you made it here in the end! That’s the spirit of a true… confused champion.”" },
+      { "character": "Hazel", "text": "“You mean ‘determined’. Though ‘confused’ fits too. Well done anyway, <player's name>.”" }
+    ]},
+    { "score": 800, "img": "assets/images/awards/25.jpg", "title": "🤔 Confused Constable", "dialogue": [
+      { "character": "Moo", "text": "“Well… <player's name>… you did catch some clues. Which is more than I can say for Hazel when she tried to catch her own tail.”" },
+      { "character": "Hazel", "text": "“Unlike you, <player's name> actually helped — even if they did accuse a flowerpot at one point.”" }
+    ]},
+    { "score": 300, "img": "assets/images/awards/10.jpg", "title": "😵 Lost in the Labyrinth", "dialogue": [
+      { "character": "Moo", "text": "“Oh dear. <player's name>, you appear to have been… heroically lost the entire time. Admirable commitment to wandering aimlessly!”" },
+      { "character": "Hazel", "text": "“At least <player's name> didn’t try to arrest the sun like you did, Moo. Progress.”" }
+    ]},
+    { "score": 0, "img": "assets/images/awards/00.jpg", "title": "🐌 Detective Sloth", "dialogue": [
+      { "character": "Moo", "text": "“Ah, <player's name>. Clearly saving your energy for… the next case. A bold tactic.”" },
+      { "character": "Hazel", "text": "“Or maybe just asleep the whole time, like you during stakeouts, Moo. Better luck next time, <player's name>.”" }
+    ]}
+  ]
+}

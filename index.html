@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/images/ui/icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/ui/icon.png">
+    <meta name="theme-color" content="#36454F">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Glen Feud</title>
+    <script>
+    // Dynamically set the page title from the config file
+    fetch('data/config.json')
+        .then(response => response.json())
+        .then(config => {
+            if (config.title) {
+                document.title = config.title;
+            }
+        })
+        .catch(error => console.error("Could not load game title:", error));
+</script>
+    <style>
+        
+        :root{
+            --brand-color:#2f5233; /* Ochil hillside green */
+        }
+
+
+        /* General Body and Font Styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            /* ✅ New font stack */
+            font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+            background: #fdfaf0;
+            color: #36454F;
+            overflow: hidden;
+        }
+
+        /* Main Game Container */
+        #game-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        /* Screen Styling */
+        .screen {
+            display: none; /* Initially hide all screens with JS controlling visibility */
+            flex-direction: column;
+            justify-content: flex-start; /* Align content to the top */
+            align-items: center;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 20px;
+            padding: 25px 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            text-align: center;
+            border: 1px solid #eee;
+            animation: fadeIn 0.5s ease-in-out;
+            max-height: 90vh; /* Ensure the box doesn't exceed screen height */
+            overflow-y: auto; /* Allow scrolling within the box if content is too long */
+            box-sizing: border-box; /* Ensures padding is included in the width/height */
+        }
+
+            .screen.active {
+                display: flex; /* Show the active screen */
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Styling for screen images, placed under the title */
+        .screen-image {
+            width: 100%; /* Image will now fill the width of the content box */
+            height: auto;
+            border-radius: 15px;
+            margin-top: 15px; /* Space below title/subtitle */
+            margin-bottom: 20px; /* Space above main text */
+            background-color: #eee;
+            object-fit: cover;
+        }
+
+        .title-image {
+    max-width: 95%;           /* Prevents the image from touching the card edges */
+    height: auto;             /* Keeps the image's aspect ratio correct */
+    display: block;           /* Helps with spacing and centering */
+    margin: 0 auto 10px auto; /* Centers the image and adds space below it */
+}
+
+        
+
+        .subtitle {
+            font-size: clamp(1em, 4vw, 1.2em);
+            margin-bottom: 0; /* Adjusted margin */
+            color: #5E5E5E; /* Darker grey */
+            display: none;
+        }
+
+        .screen-subheader {
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid;
+            padding-bottom: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header-directions {
+            border-color: #008080;
+            color: #008080;
+        }
+        /* Teal */
+        .header-story {
+            border-color: #8B4513;
+            color: #8B4513;
+        }
+        /* Warm Brown */
+        .header-clue {
+            border-color: #A52A2A;
+            color: #A52A2A;
+        }
+        /* Deep Red */
+
+        .clue-progress-indicator {
+            font-size: clamp(0.8em, 2.5vw, 1em);
+            font-weight: bold;
+            color: #fff;
+            background-color: #36454F; /* Charcoal */
+            padding: 5px 10px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: clamp(0.95em, 3.5vw, 1.1em);
+            margin-top: 0;
+            margin-bottom: 1em;
+        }
+
+        /* New Layout Containers for Story and Dialogue */
+        .story-paragraph-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            text-align: left;
+            margin-top: 15px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+            .story-paragraph-container .icon {
+                flex-shrink: 0;
+                width: 24px;
+                height: 24px;
+                margin-top: 5px;
+            }
+
+                .story-paragraph-container .icon img {
+                    width: 100%;
+                    height: 100%;
+                }
+
+            .story-paragraph-container p {
+                margin: 0;
+                flex-grow: 1;
+            }
+
+        .dialogue-container {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: auto; /* This contains the floated element */
+        }
+        /* Character-specific dialogue backgrounds */
+        .dialogue-hazel {
+            background-color: #FFF8DC;
+        }
+        /* Soft Warm Gold (Cornsilk) */
+        .dialogue-moo {
+            background-color: #F0FFF0;
+        }
+        /* Cool Light Mint (Honeydew) */
+        .dialogue-other {
+            background-color: #F0F8FF;
+        }
+        /* Pale Grey-Blue (AliceBlue) */
+
+        .dialogue-container .character-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            float: left; /* Make the avatar float to the left */
+            margin-right: 15px; /* Add space between the avatar and the text */
+        }
+
+        .dialogue-container p {
+            margin: 0;
+            text-align: left;
+            font-style: italic;
+            /* This will now automatically wrap around the floated avatar */
+        }
+
+        /* Directional Arrows Styling */
+        .arrows-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .arrow-icon {
+            width: 90px;
+            height: 90%;
+        }
+
+        /* Input and Button Styling */
+        input#detectiveName {
+            font-size: 1.1em;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            text-align: center;
+            width: 80%;
+            max-width: 300px;
+            margin-bottom: 10px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+            input#detectiveName:focus {
+                outline: none;
+                border-color: #36454F;
+                box-shadow: 0 0 10px rgba(54, 69, 79, 0.2);
+            }
+
+        .big-btn {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: clamp(1.1em, 4vw, 1.3em);
+            padding: 15px 20px;
+            border: none;
+            border-radius: 12px;
+            background: #36454F; /* Charcoal */
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s, opacity 0.2s;
+            box-shadow: 0 4px 15px rgba(54, 69, 79, 0.2);
+        }
+
+            .big-btn:hover {
+                transform: translateY(-3px);
+                background-color: #2F3E46;
+            }
+
+            .big-btn:disabled {
+                background-color: #b0bec5; /* Grey out disabled buttons */
+                cursor: not-allowed;
+                transform: none;
+                box-shadow: none;
+            }
+
+            .big-btn.secondary { /* New class for secondary buttons */
+                background-color: #78909c;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            }
+
+                .big-btn.secondary:hover {
+                    background-color: #546e7a;
+                }
+
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .grid-equal {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* This creates two equal-fraction columns */
+}
+
+        /* ---- Integrated Grid Selection Styling ---- */
+        #selection-container, #notebook-view, #cypher-view {
+            display: none; /* Hidden by default */
+            width: 100%;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #e0e0e0;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px; /* Reduced gap slightly */
+            margin: 20px 0;
+        }
+
+        .grid-item {
+            text-align: center;
+            padding: 10px;
+            border-radius: 12px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s, border-color 0.3s;
+            position: relative; /* Needed for the cross overlay */
+            background-color: #fff;
+        }
+
+            .grid-item:hover {
+                background-color: #f0f8ff;
+                transform: scale(1.05);
+            }
+
+            .grid-item img {
+                width: 80px;
+                height: 80px;
+                border-radius: 10px;
+                object-fit: cover;
+                background-color: #eee;
+                pointer-events: none; /* Make sure click goes to the parent div */
+            }
+
+            .grid-item.selected {
+                border-color: #36454F;
+                background-color: #e0f2f1;
+                transform: scale(1.05);
+            }
+
+            .grid-item.eliminated {
+                opacity: 0.5;
+                cursor: not-allowed;
+                background-color: #f5f5f5;
+            }
+
+                .grid-item.eliminated:hover {
+                    transform: none; /* Disable hover effect for eliminated items */
+                }
+
+                .grid-item.eliminated::after {
+                    content: '❌';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 3rem;
+                    color: red;
+                    opacity: 0.8;
+                    pointer-events: none; /* Make sure the cross doesn't intercept clicks */
+                }
+
+        #selection-feedback {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #36454F;
+            min-height: 20px;
+        }
+
+        /* ---- Integrated Feedback Styling ---- */
+        #feedback-container {
+            display: none; /* Hidden by default */
+            width: 100%;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid;
+            box-sizing: border-box;
+        }
+
+            #feedback-container.correct {
+                background-color: #e8f5e9; /* Light green */
+                border-color: #4caf50; /* Green */
+            }
+
+            #feedback-container.incorrect {
+                background-color: #ffebee; /* Light red */
+                border-color: #f44336; /* Red */
+            }
+
+        #feedback-title {
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        /* Popup Styling (Recap) */
+        @keyframes pop-up-content {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            display: none; /* Controlled by JS */
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            box-sizing: border-box;
+            z-index: 1000;
+            animation: fadeIn 0.2s;
+        }
+
+        .popup-content {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: pop-up-content 0.3s ease-out;
+        }
+
+        #recap-modal .popup-content {
+            max-width: 500px;
+        }
+
+        #cypher-view img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Progress Screen Styling */
+        .progress-graphic-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .progress-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.5s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+            stroke: #008080; /* Teal */
+        }
+
+        .progress-ring__circle-bg {
+            stroke: #e0e0e0;
+        }
+
+        .progress-percentage-text {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #36454F;
+        }
+
+        .progress-label-text {
+            font-size: 0.8em;
+            color: #5E5E5E;
+            margin-top: -5px;
+        }
+
+        @keyframes sparkle-animation {
+            0% {
+                text-shadow: 0 0 5px, 0 0 10px, 0 0 15px;
+            }
+
+            50% {
+                text-shadow: 0 0 10px, 0 0 20px, 0 0 30px;
+            }
+
+            100% {
+                text-shadow: 0 0 5px, 0 0 10px, 0 0 15px;
+            }
+        }
+
+        .sparkle-gold {
+            color: #FFD700;
+            animation: sparkle-animation 1.5s infinite;
+        }
+
+        .sparkle-silver {
+            color: #C0C0C0;
+            animation: sparkle-animation 2s infinite;
+        }
+
+        .sparkle-bronze {
+            color: #CD7F32;
+            animation: sparkle-animation 2.5s infinite;
+        }
+
+
+        #milestones-container {
+            position: relative;
+            width: 80%;
+            margin: 15px 0 10px 0;
+            padding-top: 1.5rem;
+        }
+
+        @keyframes pop-in {
+            0% {
+                transform: translateX(-50%) scale(0);
+            }
+
+            70% {
+                transform: translateX(-50%) scale(1.2);
+            }
+
+            100% {
+                transform: translateX(-50%) scale(1);
+            }
+        }
+
+        .milestone {
+            position: absolute;
+            bottom: 100%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            display: none; /* Hidden by default */
+        }
+
+            .milestone.active {
+                display: block;
+                animation: pop-in 0.5s ease-out;
+            }
+
+        #milestone-25 {
+            left: 25%;
+        }
+
+        #milestone-50 {
+            left: 50%;
+        }
+
+        #milestone-75 {
+            left: 75%;
+        }
+
+        #milestone-100 {
+            left: 100%;
+        }
+
+        #progress-bar-container {
+            width: 100%;
+            height: 30px;
+            background-color: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        #progress-bar {
+            width: 0%;
+            height: 100%;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            background: repeating-linear-gradient(45deg, #36454F, #2F3E46 10px, #36454F 10px, #2F3E46 20px);
+            background-size: 200% 200%;
+            animation: progress-animation 2s linear infinite;
+            transition: width 0.5s ease-in-out;
+        }
+
+        @keyframes progress-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        #progress-summary {
+            margin-top: 20px;
+            font-size: clamp(0.9em, 3vw, 1em);
+            color: #5d4037;
+            background-color: #fafafa;
+            padding: 10px;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #timer-display {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 15px;
+            background-color: #e8f5e9;
+            padding: 5px 15px;
+            border-radius: 10px;
+        }
+
+        /* ---- Grand Reveal Screen Styling ---- */
+        #grand-reveal-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .culprit-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            border-radius: 12px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+            .culprit-display img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                border: 4px solid #fff;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            }
+
+            .culprit-display h3 {
+                margin: 5px 0 0 0;
+                font-size: 1.4em;
+            }
+
+        /* ---- Score Breakdown Styling ---- */
+        #score-breakdown {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 12px;
+        }
+
+            #score-breakdown p {
+                display: flex;
+                justify-content: space-between;
+                margin: 5px 0;
+                font-size: 1em;
+            }
+
+                #score-breakdown p span:last-child {
+                    font-weight: bold;
+                }
+
+        #final-score-line {
+            border-top: 2px solid #36454F;
+            margin-top: 10px;
+            padding-top: 10px;
+            font-size: 1.2em !important;
+        }
+
+        /* ---- Certificate Styling ---- */
+        #certificate-content {
+            border: 10px solid #36454F;
+            padding: 20px;
+            background-color: #fdfaf0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+            #certificate-content h1 {
+                font-family: 'serif';
+                color: #8B4513;
+            }
+
+        #certificate-player-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            border-bottom: 2px solid #36454F;
+            padding-bottom: 5px;
+            margin: 20px 0;
+        }
+
+        #certificate-rank {
+            font-style: italic;
+        }
+
+        .certificate-signature-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .certificate-signature img {
+            height: 60px;
+            width: auto;
+        }
+
+        /* ---- Print Styling ---- */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #certificate-screen, #certificate-screen * {
+                visibility: visible;
+            }
+
+            #certificate-screen {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                max-width: 100%;
+                max-height: 100%;
+                border-radius: 0;
+                box-shadow: none;
+                border: none;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="game-container">
+
+        <!-- NEW: Loading Screen -->
+        <div id="loading-screen" class="screen active">
+            <img src="assets/images/ui/titles.jpg" alt="The Menstrie Giant" class="title-image">
+            <p>Loading game assets...</p>
+            <div id="loading-progress-bar-container" class="progress-bar-container" style="width: 80%;">
+                <div id="loading-progress-bar" class="progress-bar" style="width: 0%;">0%</div>
+            </div>
+        </div>
+
+        <!-- Each section is a "screen" in the game. JS will manage which one is active. -->
+        <!-- Each section is a "screen" in the game. JS will manage which one is active. -->
+<div id="welcome-screen" class="screen">
+  <img src="assets/images/ui/titles.jpg" alt="The Menstrie Giant" class="title-image">
+  <img src="assets/images/ui/intro.jpg" alt="The Great Glen Feud" class="title-image">
+  
+
+  <p>The fragile peace between the animal kingdoms of Pittencrieff Park has been shattered! General Scramble-nut’s winter acorn stash is missing, and he blames the peacocks. Lord Featherton’s prized nesting materials have been sabotaged, and he blames the squirrels.</p>
+  <p>A wise old owl has summoned the world’s finest detective trio—Hazel, Moo, and you—to act as neutral arbiters.</p>
+  <p>You must untangle a web of accusations and counter-accusations to find the real troublemaker before this feud spills over into an all-out war of fluff and feather!</p>
+  <input id="detectiveName" placeholder="Detective Name" aria-label="Detective Name">
+  <button id="start-button" class="big-btn">Enter the Mystery</button>
+  
+  <div id="welcome-button-group" class="button-group" style="display: none;">
+      <button id="continue-button" class="big-btn">Continue Game</button>
+      <button id="new-game-button" class="big-btn secondary">New Game</button>
+  </div>
+</div>
+
+        <div id="story-screen" class="screen">
+            <img src="assets/images/ui/titles.jpg" alt="The Menstrie Giant" class="title-image">
+            <img src="assets/images/ui/welcome.jpg" alt="Welcome to the investigation" class="screen-image">
+            <div id="story-screen-content"></div>
+            <button id="story-continue-button" class="big-btn">Continue</button>
+        </div>
+
+        <div id="intro-story-screen" class="screen">
+            <img src="assets/images/ui/titles.jpg" alt="The Menstrie Giant" class="title-image">
+            <img src="assets/images/ui/intro_story.jpg" alt="Introduction image" class="screen-image">
+            <div id="intro-story-content"></div>
+            <button id="intro-story-next-button" class="big-btn">Let's find some clues</button>
+        </div>
+
+        <div id="clue-popup-screen" class="screen">
+            <div class="title" id="clue-popup-title">🔎 Clue 1 - The Adventure Begins</div>
+            <p>Get ready to solve the next clue!</p>
+        </div>
+
+        <div id="directions-screen" class="screen">
+            <img src="assets/images/ui/titles.jpg" alt="The Menstrie Giant" class="title-image">
+            <div class="subtitle" id="directions-subtitle"></div>
+            <div class="clue-progress-indicator" id="directions-progress"></div>
+            <h3 class="screen-subheader header-directions">Directions</h3>
+            <div id="directions-arrows-container" class="arrows-container"></div>
+            <div id="directions-content"></div>
+            <button id="directions-next-button" class="big-btn">Next</button>
+        </div>
+
+        <div id="clue-story-screen" class="screen">
+            <img src="assets/images/ui/titles.jpg" alt="The Menstrie Giant" class="title-image">
+            <div class="subtitle" id="clue-story-subtitle"></div>
+            <div class="clue-progress-indicator" id="clue-story-progress"></div>
+            <img src="assets/images/ui/story.jpg" alt="Story illustration" class="screen-image">
+            <div id="clue-story-content"></div>
+            <button id="clue-story-solve-button" class="big-btn">Examine the Clue</button>
+        </div>
+
+        <div id="task-screen" class="screen">
+            <img src="assets/images/ui/titles.jpg" alt="The Menstrie Giant" class="title-image">
+            <div class="subtitle" id="task-subtitle"></div>
+            <div class="clue-progress-indicator" id="task-progress"></div>
+            <img src="assets/images/ui/clues.jpg" alt="Clue illustration" class="screen-image">
+
+            <!-- Container for the main task view -->
+            <div id="task-main-view">
+                <div id="task-dialogue-container" class="dialogue-container">
+                    <!-- Dialogue will be dynamically inserted here by JS -->
+                </div>
+                <div class="button-group grid-equal">
+    <button id="show-suspects-button" class="big-btn">View Suspects</button>
+    <button id="show-objects-button" class="big-btn">View Locations</button>
+
+</div>
+<div class="button-group grid-equal">
+    <button id="show-cypher-button" class="big-btn">View Cypher</button>
+
+    <button id="notebook-button" class="big-btn secondary">Notebook</button>
+    <button id="recap-button" class="big-btn secondary">Recap Clue</button>
+</div>
+            </div>
+
+            <!-- Container for the grid selection, now integrated into the task screen -->
+            <div id="selection-container">
+                <h2 id="grid-title" class="title">Choose</h2>
+                <div id="grid-content" class="grid"></div>
+                <div id="selection-feedback">Select one item as your answer.</div>
+                <div class="button-group">
+                    <button id="confirm-selection-button" class="big-btn">Confirm Selection</button>
+                    <button id="close-grid-button" class="big-btn secondary">Back to Clue</button>
+                </div>
+            </div>
+
+            <!-- NEW: Container for the notebook view -->
+            <div id="notebook-view">
+    <h2 class="title">Detective's Notebook</h2>
+    <h3 class="screen-subheader header-clue">Suspects</h3>
+    <div id="notebook-suspects-grid" class="grid"></div>
+    <h3 class="screen-subheader header-clue">Locations</h3>
+    <div id="notebook-objects-grid" class="grid"></div>
+    <button id="notebook-close-button" class="big-btn secondary">Back to Clue</button>
+</div>
+
+            <!-- NEW: Container for the cypher view -->
+            <div id="cypher-view">
+                <h2 class="title">Cypher</h2>
+                <img id="cypher-img" src="" alt="Cypher Image" class="screen-image">
+                <button id="cypher-close-button" class="big-btn secondary">Back to Clue</button>
+            </div>
+
+            <!-- Container for feedback, also integrated -->
+            <div id="feedback-container">
+                <h2 id="feedback-title" class="title">Result</h2>
+                <div id="feedback-narrative"></div>
+                <button id="feedback-continue-button" class="big-btn">See Progress</button>
+            </div>
+        </div>
+
+        <!-- Progress Screen -->
+        <div id="progress-screen" class="screen">
+            <img src="assets/images/ui/detective-chart.jpg" alt="Detective Chart" class="screen-image" style="width: 100%; max-width: 350px;">
+            <div style="display: flex; width: 100%; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <div id="correctness-graphic" class="progress-graphic-container">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring__circle-bg" stroke-width="8" fill="transparent" r="52" cx="60" cy="60" />
+                        <circle class="progress-ring__circle" id="correctness-circle" stroke-width="8" fill="transparent" r="52" cx="60" cy="60" />
+                    </svg>
+                    <span id="correctness-percentage" class="progress-percentage-text">0%</span>
+                    <span class="progress-label-text">Correct</span>
+                </div>
+                <p id="progress-message" style="margin: 0; text-align: left; flex: 1;">Here's how you're tracking so far.</p>
+            </div>
+            <div id="milestones-container">
+                <div class="milestone" id="milestone-25">🕵️</div>
+                <div class="milestone" id="milestone-50">🔍</div>
+                <div class="milestone" id="milestone-75">🔓</div>
+                <div class="milestone" id="milestone-100">🎉</div>
+                <div id="progress-bar-container">
+                    <div id="progress-bar">0%</div>
+                </div>
+            </div>
+            <div id="progress-summary"></div>
+            <div id="motivational-quote-container"></div>
+            <button id="progress-continue-button" class="big-btn">Next Clue</button>
+        </div>
+
+        <!-- Grand Reveal Screen -->
+        <div id="grand-reveal-screen" class="screen">
+            <div class="title">The Grand Reveal!</div>
+            <img src="assets/images/ui/reveal.jpg" alt="Grand Reveal" class="screen-image">
+            <div id="reveal-story-content" style="width:100%"></div>
+            <div id="grand-reveal-container">
+    <div class="culprit-display">
+        <h3>Suspect</h3>
+        <img id="culprit-img" src="" alt="Culprit">
+        <p id="culprit-name"></p>
+    </div>
+    <div class="culprit-display">
+        <h3>Location</h3>
+        <img id="used-object-img" src="" alt="Used Object">
+        <p id="used-object-name"></p>
+    </div>
+</div>
+            <button id="reveal-continue-button" class="big-btn">See Your Award</button>
+        </div>
+
+        <!-- Detective Award Screen -->
+        <div id="detective-award-screen" class="screen">
+            <div class="title">Detective Award</div>
+            <img id="award-badge-img" src="" alt="Detective Badge" class="screen-image" style="width: 100%; max-width: 100%;">
+            <h2 id="award-title-text" class="subtitle" style="margin-top: 10px; margin-bottom: 10px;"></h2>
+            <div id="score-breakdown">
+                <p><span>Correct Answers:</span> <span id="base-score">0</span></p>
+                <p><span>Error Penalty:</span> <span id="error-penalty">0</span></p>
+                <p id="final-score-line"><span>Final Score:</span> <span id="final-score">0</span></p>
+            </div>
+            <div id="award-dialogue-container" style="width: 100%;">
+                <!-- Dialogue will be inserted here -->
+            </div>
+            <div class="button-group">
+                <button id="view-certificate-button" class="big-btn">View Certificate</button>
+                <button id="play-again-button" class="big-btn">Play Again?</button>
+            </div>
+        </div>
+
+        <!-- NEW: Certificate Screen -->
+        <div id="certificate-screen" class="screen">
+            <div id="certificate-content">
+                <h1>Certificate of Achievement</h1>
+                <p>This certificate is proudly awarded to</p>
+                <h2 id="certificate-player-name"></h2>
+                <p>for successfully solving The Menstrie Giant treasue hunt and earning the prestigious rank of</p>
+                <h3 id="certificate-rank"></h3>
+                <div class="certificate-signature-container">
+                    <div class="certificate-signature"><img src="assets/images/characters/moo.jpg" alt="Moo"></div>
+                    <div class="certificate-signature"><img src="assets/images/characters/hazel.jpg" alt="Hazel"></div>
+                </div>
+            </div>
+            <div class="button-group no-print">
+                <button id="print-certificate-button" class="big-btn">Print / Save as PDF</button>
+                <button id="certificate-back-button" class="big-btn secondary">Back</button>
+            </div>
+            <p class="no-print" style="font-size: 0.8em; margin-top: 10px;">(Hint: In the print dialog, you can choose 'Save as PDF' from the destination list.)</p>
+        </div>
+    </div>
+
+    <!-- The popup for showing the recap -->
+    <div id="recap-modal" class="popup-overlay">
+        <div class="popup-content">
+            <h2 id="recap-title" class="title">Clue Recap</h2>
+            <div id="recap-content"></div>
+            <button id="recap-close-button" class="big-btn secondary">Close</button>
+        </div>
+    </div>
+
+    <div id="confirm-modal" class="popup-overlay">
+        <div class="popup-content">
+            <h2 class="title">Start a New Game?</h2>
+            <p>Your saved progress will be lost. Are you sure you want to continue?</p>
+            <div class="button-group">
+                <button id="confirm-new-game-button" class="big-btn">Yes, Start New Game</button>
+                <button id="cancel-new-game-button" class="big-btn secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template for Grid Items -->
+    <template id="grid-item-template">
+        <div class="grid-item">
+            <img src="" alt="">
+            <p></p>
+        </div>
+    </template>
+
+    <div id="preload-cache" style="display: none;"></div>
+
+    <script src="app-data-loader.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DOM ELEMENTS ---
+            const elements = {
+                
+                screens: {
+                    loading: document.getElementById('loading-screen'),
+                    welcome: document.getElementById('welcome-screen'),
+                    story: document.getElementById('story-screen'),
+                    introStory: document.getElementById('intro-story-screen'),
+                    cluePopup: document.getElementById('clue-popup-screen'),
+                    directions: document.getElementById('directions-screen'),
+                    clueStory: document.getElementById('clue-story-screen'),
+                    task: document.getElementById('task-screen'),
+                    progress: document.getElementById('progress-screen'),
+                    grandReveal: document.getElementById('grand-reveal-screen'),
+                    detectiveAward: document.getElementById('detective-award-screen'),
+                    certificate: document.getElementById('certificate-screen'),
+                },
+                buttons: {
+                    start: document.getElementById('start-button'),
+                    continueGame: document.getElementById('continue-button'),
+                    newGame: document.getElementById('new-game-button'),
+                    storyContinue: document.getElementById('story-continue-button'),
+                    introStoryNext: document.getElementById('intro-story-next-button'),
+                    directionsNext: document.getElementById('directions-next-button'),
+                    clueStorySolve: document.getElementById('clue-story-solve-button'),
+                    showSuspects: document.getElementById('show-suspects-button'),
+                    showObjects: document.getElementById('show-objects-button'),
+                    confirmSelection: document.getElementById('confirm-selection-button'),
+                    closeGrid: document.getElementById('close-grid-button'),
+                    feedbackContinue: document.getElementById('feedback-continue-button'),
+                    progressContinue: document.getElementById('progress-continue-button'),
+                    recap: document.getElementById('recap-button'),
+                    recapClose: document.getElementById('recap-close-button'),
+                    revealContinue: document.getElementById('reveal-continue-button'),
+                    playAgain: document.getElementById('play-again-button'),
+                    showCypher: document.getElementById('show-cypher-button'),
+                    cypherClose: document.getElementById('cypher-close-button'),
+                    notebook: document.getElementById('notebook-button'),
+                    notebookClose: document.getElementById('notebook-close-button'),
+                    viewCertificate: document.getElementById('view-certificate-button'),
+                    printCertificate: document.getElementById('print-certificate-button'),
+                    certificateBack: document.getElementById('certificate-back-button'),
+                    // --- CORRECTED LINES START HERE ---
+                    confirmNewGame: document.getElementById('confirm-new-game-button'),
+                    cancelNewGame: document.getElementById('cancel-new-game-button'),
+                    // --- CORRECTED LINES END HERE ---
+                },
+                // --- ADD THIS NEW LINE FOR THE MODAL ---
+                confirmModal: document.getElementById('confirm-modal'),
+                inputs: {
+                    detectiveName: document.getElementById('detectiveName'),
+                },
+
+                // ADD THESE 3 LINES BACK IN
+                loading: {
+                    progressBar: document.getElementById('loading-progress-bar'),
+                },
+
+                // ... the rest of your elements object continues from here
+                
+                dynamicContent: {
+                    cluePopupTitle: document.getElementById('clue-popup-title'),
+                    taskSubtitle: document.getElementById('task-subtitle'),
+                    taskDialogueContainer: document.getElementById('task-dialogue-container'),
+                    progressBar: document.getElementById('progress-bar'),
+                    progressMessage: document.getElementById('progress-message'),
+                    progressSummary: document.getElementById('progress-summary'),
+                    motivationalQuoteContainer: document.getElementById('motivational-quote-container'),
+                    directionsSubtitle: document.getElementById('directions-subtitle'),
+                    directionsArrowsContainer: document.getElementById('directions-arrows-container'),
+                    directionsContent: document.getElementById('directions-content'),
+                    clueStorySubtitle: document.getElementById('clue-story-subtitle'),
+                    clueStoryContent: document.getElementById('clue-story-content'),
+                    storyScreenContent: document.getElementById('story-screen-content'),
+                    introStoryContent: document.getElementById('intro-story-content'),
+                    correctnessGraphic: document.getElementById('correctness-graphic'),
+                    correctnessCircle: document.getElementById('correctness-circle'),
+                    correctnessPercentage: document.getElementById('correctness-percentage'),
+                    timerDisplay: document.getElementById('timer-display'),
+                    progressIndicators: {
+                        directions: document.getElementById('directions-progress'),
+                        clueStory: document.getElementById('clue-story-progress'),
+                        task: document.getElementById('task-progress'),
+                    },
+                    milestones: {
+                        25: document.getElementById('milestone-25'),
+                        50: document.getElementById('milestone-50'),
+                        75: document.getElementById('milestone-75'),
+                        100: document.getElementById('milestone-100'),
+                    }
+                },
+                taskScreenViews: {
+                    main: document.getElementById('task-main-view'),
+                    selection: document.getElementById('selection-container'),
+                    feedback: document.getElementById('feedback-container'),
+                    notebook: document.getElementById('notebook-view'),
+                    cypher: document.getElementById('cypher-view'),
+                },
+                selectionGrid: {
+                    title: document.getElementById('grid-title'),
+                    content: document.getElementById('grid-content'),
+                    feedback: document.getElementById('selection-feedback'),
+                },
+                feedbackView: {
+                    title: document.getElementById('feedback-title'),
+                    narrative: document.getElementById('feedback-narrative'),
+                },
+
+                
+
+
+                recapModal: {
+                    container: document.getElementById('recap-modal'),
+                    title: document.getElementById('recap-title'),
+                    content: document.getElementById('recap-content'),
+                },
+                cypherView: {
+                    img: document.getElementById('cypher-img'),
+                },
+                notebookView: {
+                    suspectsGrid: document.getElementById('notebook-suspects-grid'),
+                    objectsGrid: document.getElementById('notebook-objects-grid'),
+                },
+                reveal: {
+                    culpritImg: document.getElementById('culprit-img'),
+                    culpritName: document.getElementById('culprit-name'),
+                    usedObjectImg: document.getElementById('used-object-img'),
+                    usedObjectName: document.getElementById('used-object-name'),
+                    storyContent: document.getElementById('reveal-story-content'),
+                },
+                award: {
+                    badgeImg: document.getElementById('award-badge-img'),
+                    titleText: document.getElementById('award-title-text'),
+                    baseScore: document.getElementById('base-score'),
+                    errorPenalty: document.getElementById('error-penalty'),
+                    finalScore: document.getElementById('final-score'),
+                    dialogueContainer: document.getElementById('award-dialogue-container'),
+                },
+                certificate: {
+                    playerName: document.getElementById('certificate-player-name'),
+                    rank: document.getElementById('certificate-rank'),
+                },
+                templates: {
+                    gridItem: document.getElementById('grid-item-template'),
+                }
+            };
+
+            
+
+            // --- GAME STATE ---
+const gameState = {
+    detectiveName: '',
+    currentScreen: 'loading',
+    currentClueIndex: 0,
+    correctAnswers: 0,
+    incorrectGuesses: 0,
+    finalScore: 0,
+    finalRank: '',
+    playerSelection: null,
+    eliminatedSuspects: [],
+    eliminatedObjects: [],
+    progressBarInterval: null,
+    correctnessAnimationInterval: null
+};
+
+// --- SAVE GAME STATE ---
+function saveGameState() {
+  try {
+    const stateToSave = {
+      currentScreen: gameState.currentScreen,
+      currentClueIndex: gameState.currentClueIndex,
+      correctAnswers: gameState.correctAnswers,
+      incorrectGuesses: gameState.incorrectGuesses,
+      finalScore: gameState.finalScore,
+      finalRank: gameState.finalRank,
+      playerSelection: gameState.playerSelection,
+      eliminatedSuspects: gameState.eliminatedSuspects,
+      eliminatedObjects: gameState.eliminatedObjects,
+      detectiveName: gameState.detectiveName
+    };
+    localStorage.setItem('menstrieGiantProgress', JSON.stringify(stateToSave));
+  } catch (e) {
+    console.error("Failed to save game state", e);
+  }
+}
+
+
+// --- LOAD SAVED GAME STATE IF EXISTS ---
+            async function init() {
+                navigateTo('loading');
+                // First, load the game data from our new JSON files
+                window.gameData = await window.__loadGameData();
+
+                preloadAssets(() => {
+                    const saved = localStorage.getItem('menstrieGiantProgress');
+                    let inProgress = false; // Assume not in progress by default
+
+                    if (saved) {
+                        try {
+                            const savedState = JSON.parse(saved);
+                            // A game is in progress if they've started but not finished
+                            if (savedState.currentClueIndex > 0 && savedState.currentClueIndex < gameData.clues.length) {
+                                inProgress = true;
+                            }
+                        } catch (e) {
+                            // Ignore corrupted save files
+                        }
+                    }
+
+                    if (inProgress) {
+                        // If a game is in progress, show the Continue/New Game buttons
+                        elements.buttons.start.style.display = 'none';
+                        document.getElementById('welcome-button-group').style.display = 'flex';
+                    } else {
+                        // Otherwise, show the normal Start button
+                        elements.buttons.start.style.display = 'inline-block';
+                        document.getElementById('welcome-button-group').style.display = 'none';
+                    }
+                    navigateTo('welcome');
+                });
+            }
+            
+            
+
+            // --- CORE FUNCTIONS ---
+
+            function renderNarrative(contentContainer, narrativeData) {
+                contentContainer.innerHTML = ''; // Clear previous content
+                narrativeData.forEach(item => {
+                    const dialogueClass = item.character === 'Hazel' ? 'dialogue-hazel' :
+                                      item.character === 'Moo' ? 'dialogue-moo' : 'dialogue-other';
+
+                    if (item.type === 'story') {
+                        const storyContainer = document.createElement('div');
+                        storyContainer.className = 'story-paragraph-container';
+                        storyContainer.innerHTML = `
+                            <div class="icon"><img src="assets/images/ui/book.png" alt="Story icon" onerror="this.style.display='none'"/></div>
+                            <p>${item.text}</p>
+                        `;
+                        contentContainer.appendChild(storyContainer);
+                    } else if (item.type === 'dialogue') {
+                        const speakerData = gameData.characters.find(s => s.name === item.character);
+                        const speaker = speakerData || { name: 'Narrator', img: 'assets/images/ui/book.png' };
+                        const dialogueContainer = document.createElement('div');
+                        dialogueContainer.className = `dialogue-container ${dialogueClass}`;
+                        dialogueContainer.innerHTML = `
+                            <img src="${speaker.img}" alt="${speaker.name}" class="character-avatar" onerror="this.style.display='none'">
+                            <p>${item.text.replace('<span id="player-name-placeholder">Detective</span>', `<span id="player-name-placeholder">${gameState.detectiveName}</span>`)}</p>
+                        `;
+                        contentContainer.appendChild(dialogueContainer);
+                    }
+                });
+            }
+
+            function navigateTo(screenName) {
+            gameState.currentScreen = screenName;
+            renderUI();
+
+            // If gameData hasn't loaded yet, stop here.
+            if (!window.gameData) return;
+
+            const clue = gameData.clues[gameState.currentClueIndex];
+            // ... rest of the function
+
+                if (screenName === 'story') {
+                    renderNarrative(elements.dynamicContent.storyScreenContent, gameData.storyScreens.story);
+                } else if (screenName === 'introStory') {
+                    renderNarrative(elements.dynamicContent.introStoryContent, gameData.storyScreens.introStory);
+                }
+
+                if (!clue && screenName !== 'grandReveal' && screenName !== 'detectiveAward' && screenName !== 'certificate') {
+                    return;
+                }
+
+                // Update progress indicators
+                if (clue) {
+                    const progressText = `${clue.subtitle.replace('#', '')} of ${gameData.clues.length}`;
+                    Object.values(elements.dynamicContent.progressIndicators).forEach(indicator => {
+                        indicator.textContent = progressText;
+                    });
+                }
+
+
+                if (screenName === 'cluePopup') {
+                    elements.dynamicContent.cluePopupTitle.textContent = `🔎 ${clue.subtitle} - ${clue.title}`;
+                    setTimeout(() => navigateTo('directions'), 2500);
+                } else if (screenName === 'directions') {
+                    elements.dynamicContent.directionsSubtitle.textContent = clue.title;
+                    renderNarrative(elements.dynamicContent.directionsContent, clue.directions);
+                    // Render arrows
+                    const arrowsContainer = elements.dynamicContent.directionsArrowsContainer;
+                    arrowsContainer.innerHTML = ''; // Clear old arrows
+                    if (clue.directionsImages && clue.directionsImages.length > 0) {
+                        clue.directionsImages.forEach(imgSrc => {
+                            const img = document.createElement('img');
+                            img.src = imgSrc;
+                            img.className = 'arrow-icon';
+                            img.onerror = () => img.style.display = 'none';
+                            arrowsContainer.appendChild(img);
+                        });
+                    }
+                } else if (screenName === 'clueStory') {
+                    elements.dynamicContent.clueStorySubtitle.textContent = clue.title;
+                    renderNarrative(elements.dynamicContent.clueStoryContent, clue.clueStory);
+                }
+            }
+
+            function updateProgressScreen(isFinalReport = false) {
+                gameState.isFinalReport = isFinalReport;
+                const totalClues = gameData.clues.length;
+                const cluesCompleted = gameState.currentClueIndex;
+                const targetPercentage = totalClues > 0 ? Math.round((cluesCompleted / totalClues) * 100) : 0;
+
+                // Animate the progress bar
+                if (gameState.progressBarInterval) clearInterval(gameState.progressBarInterval);
+                let currentBarPercentage = parseInt(elements.dynamicContent.progressBar.style.width) || 0;
+
+                gameState.progressBarInterval = setInterval(() => {
+                    if (currentBarPercentage < targetPercentage) {
+                        currentBarPercentage++;
+                        elements.dynamicContent.progressBar.style.width = `${currentBarPercentage}%`;
+                        elements.dynamicContent.progressBar.textContent = `${currentBarPercentage}%`;
+                    } else {
+                        clearInterval(gameState.progressBarInterval);
+                    }
+                }, 20);
+
+                // Animate Correctness Circle
+                const targetCorrectness = cluesCompleted > 0 ? Math.round((gameState.correctAnswers / cluesCompleted) * 100) : 0;
+                const circle = elements.dynamicContent.correctnessCircle;
+                const radius = circle.r.baseVal.value;
+                const circumference = radius * 2 * Math.PI;
+                circle.style.strokeDasharray = `${circumference} ${circumference}`;
+
+                if (gameState.correctnessAnimationInterval) clearInterval(gameState.correctnessAnimationInterval);
+                let currentCorrectness = parseInt(elements.dynamicContent.correctnessPercentage.textContent) || 0;
+
+                gameState.correctnessAnimationInterval = setInterval(() => {
+                    if (currentCorrectness < targetCorrectness) {
+                        currentCorrectness++;
+                    } else if (currentCorrectness > targetCorrectness) {
+                        currentCorrectness--;
+                    } else {
+                        clearInterval(gameState.correctnessAnimationInterval);
+                    }
+                    const offset = circumference - currentCorrectness / 100 * circumference;
+                    circle.style.strokeDashoffset = offset;
+                    elements.dynamicContent.correctnessPercentage.textContent = `${currentCorrectness}%`;
+                }, 20);
+
+                // Apply sparkle effect
+                const correctnessGraphic = elements.dynamicContent.correctnessGraphic;
+                correctnessGraphic.classList.remove('sparkle-gold', 'sparkle-silver', 'sparkle-bronze');
+                if (targetCorrectness >= 90) correctnessGraphic.classList.add('sparkle-gold');
+                else if (targetCorrectness >= 75) correctnessGraphic.classList.add('sparkle-silver');
+                else if (targetCorrectness >= 50) correctnessGraphic.classList.add('sparkle-bronze');
+
+
+                elements.dynamicContent.progressMessage.textContent = `You have completed ${cluesCompleted} out of ${totalClues} clues.`;
+
+                // Update Milestones
+                for (const key in elements.dynamicContent.milestones) {
+                    if (targetPercentage >= parseInt(key)) {
+                        elements.dynamicContent.milestones[key].classList.add('active');
+                    } else {
+                        elements.dynamicContent.milestones[key].classList.remove('active');
+                    }
+                }
+
+                // Update Summary
+                elements.dynamicContent.progressSummary.innerHTML = `
+    <strong>Trails Eliminated:</strong> ${gameState.eliminatedSuspects.length} <br>
+    <strong>Locations Eliminated:</strong> ${gameState.eliminatedObjects.length}
+`;
+
+                // Update Motivational Quote
+                const clueIndexForQuote = Math.max(0, gameState.currentClueIndex - 1);
+                const quoteData = gameData.clues[clueIndexForQuote]?.motivationalQuote;
+                if (quoteData && !isFinalReport) {
+                    // Pass the quoteData array directly to the render function
+                    renderNarrative(elements.dynamicContent.motivationalQuoteContainer, quoteData);
+                } else {
+                    elements.dynamicContent.motivationalQuoteContainer.innerHTML = '';
+                }
+
+                // Update button text based on game state
+                if (gameState.currentClueIndex >= totalClues) {
+                    elements.buttons.progressContinue.textContent = "See the Grand Reveal!";
+                } else {
+                    elements.buttons.progressContinue.textContent = "Next Clue";
+                }
+
+                navigateTo('progress');
+            }
+
+
+            function renderUI() {
+                for (const screenKey in elements.screens) {
+                    elements.screens[screenKey].classList.remove('active');
+                }
+                if (elements.screens[gameState.currentScreen]) {
+                    elements.screens[gameState.currentScreen].classList.add('active');
+                }
+            }
+
+            function hasCypherImage(clue) {
+  return (
+    typeof clue.cypherImage === 'string' &&
+    clue.cypherImage.trim() !== ''
+  );
+}
+
+
+            function loadClueScreen() {
+                const clue = gameData.clues[gameState.currentClueIndex];
+                if (!clue) return; // No more clues
+
+                // Reset the task screen to its initial state
+                elements.taskScreenViews.main.style.display = 'block';
+                elements.taskScreenViews.selection.style.display = 'none';
+                elements.taskScreenViews.feedback.style.display = 'none';
+                elements.taskScreenViews.notebook.style.display = 'none';
+                elements.taskScreenViews.cypher.style.display = 'none';
+
+                elements.dynamicContent.taskSubtitle.textContent = clue.title;
+
+                // --- NEW: DYNAMICALLY UPDATE BUTTON TEXT ---
+                elements.buttons.showSuspects.textContent = gameData.config.buttons.viewSuspects || 'View Suspects';
+                elements.buttons.showObjects.textContent = gameData.config.buttons.viewObjects || 'View Locations';
+                elements.buttons.notebook.textContent = gameData.config.buttons.notebook || 'Notebook';
+                elements.buttons.recap.textContent = gameData.config.buttons.recapClue || 'Recap Clue';
+                
+                // --- CORRECTED LOGIC FOR ENABLING/DISABLING BUTTONS ---
+                // --- CORRECTED & MORE FLEXIBLE LOGIC ---
+                // This removes the 's' from the end of the words to make them match (e.g., "Suspects" becomes "suspect")
+                const primaryLabelSingular = gameData.labels.primaryList.toLowerCase().replace(/s$/, '');
+                const secondaryLabelSingular = gameData.labels.secondaryList.toLowerCase().replace(/s$/, '');
+
+                elements.buttons.showSuspects.disabled = clue.type.toLowerCase() !== primaryLabelSingular;
+                elements.buttons.showObjects.disabled = clue.type.toLowerCase() !== secondaryLabelSingular;
+
+
+                // Populate dialogue container
+                const dialogueContainer = elements.dynamicContent.taskDialogueContainer;
+                dialogueContainer.innerHTML = ''; // Clear previous content
+
+                const task = clue.task;
+                const speakerData = gameData.characters.find(s => s.name === task.character);
+
+                const dialogueClass = task.character === 'Hazel' ? 'dialogue-hazel' :
+                                      task.character === 'Moo' ? 'dialogue-moo' : 'dialogue-other';
+                dialogueContainer.className = 'dialogue-container'; // Reset
+                dialogueContainer.classList.add(dialogueClass);
+
+                if (speakerData) {
+                    const avatar = document.createElement('img');
+                    avatar.src = speakerData.img;
+                    avatar.alt = speakerData.name;
+                    avatar.className = 'character-avatar';
+                    dialogueContainer.appendChild(avatar);
+                }
+
+                const dialogueP = document.createElement('p');
+                dialogueP.innerHTML = '“' + task.text + '”';
+                dialogueContainer.appendChild(dialogueP);
+
+                // Handle Cypher button visibility
+                // Handle Cypher button visibility
+if (hasCypherImage(clue)) {
+  elements.buttons.showCypher.style.display = 'inline-block';
+  elements.buttons.showCypher.textContent = (gameData.config?.buttons?.viewCypher) || 'View Cypher';
+  elements.buttons.showCypher.dataset.cypherSrc = clue.cypherImage;
+} else {
+  elements.buttons.showCypher.style.display = 'none';
+  delete elements.buttons.showCypher.dataset.cypherSrc;
+}
+
+
+                navigateTo('task');
+            }
+
+            function showGrid(type) {
+                // Hide main view, show selection view
+                elements.taskScreenViews.main.style.display = 'none';
+                elements.taskScreenViews.selection.style.display = 'block';
+
+                const items = [...gameData[type]];
+
+                // Shuffle the items array using Fisher-Yates algorithm
+                for (let i = items.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [items[i], items[j]] = [items[j], items[i]];
+                }
+
+                let selectionTitle = '';
+if (type === 'suspects') {
+    selectionTitle = 'Select a Suspect';
+} else if (type === 'objects') {
+    selectionTitle = 'Select a Location';
+}
+elements.selectionGrid.title.textContent = selectionTitle;
+
+                elements.selectionGrid.content.innerHTML = ''; // Clear previous grid items
+                elements.selectionGrid.feedback.textContent = "Select one item as your answer.";
+                gameState.playerSelection = null;
+
+                items.forEach(item => {
+                    const clone = elements.templates.gridItem.content.cloneNode(true);
+                    const div = clone.querySelector('.grid-item');
+                    const img = clone.querySelector('img');
+                    const p = clone.querySelector('p');
+
+                    div.dataset.name = item.text; // Use .text
+                    img.src = item.image;         // Use .image
+                    img.alt = item.text;          // Use .text
+                    p.textContent = item.text;    // Use .text
+
+                    const isEliminated = (type === 'suspects' && gameState.eliminatedSuspects.includes(item.text)) ||
+                     (type === 'objects' && gameState.eliminatedObjects.includes(item.text));
+
+                    if (isEliminated) {
+                        div.classList.add('eliminated');
+                    } else {
+                        div.addEventListener('click', () => handleGridItemClick(item.text, div));
+                    }
+
+                    elements.selectionGrid.content.appendChild(clone);
+                });
+            }
+
+            function handleGridItemClick(itemName, clickedElement) {
+                const allItems = elements.selectionGrid.content.querySelectorAll('.grid-item');
+                allItems.forEach(item => item.classList.remove('selected'));
+
+                clickedElement.classList.add('selected');
+                gameState.playerSelection = itemName;
+                elements.selectionGrid.feedback.textContent = `Selected: ${itemName}`;
+            }
+
+            function closeGrid() {
+                 // Hide selection view, show main view
+                elements.taskScreenViews.selection.style.display = 'none';
+                elements.taskScreenViews.main.style.display = 'block';
+            }
+
+            function confirmSelection() {
+                const clue = gameData.clues[gameState.currentClueIndex];
+                if (!gameState.playerSelection) {
+                    elements.selectionGrid.feedback.textContent = "Please select an item first!";
+                    return;
+                }
+
+                // Hide the selection grid
+                elements.taskScreenViews.selection.style.display = 'none';
+
+                const itemToEliminate = clue.answer;
+                const isCorrect = gameState.playerSelection === clue.answer;
+
+                // Update game state
+if (isCorrect) {
+  gameState.correctAnswers++;
+} else {
+  gameState.incorrectGuesses++;
+}
+
+// Normalize labels so we can support "location/locations" or "object/objects"
+const normalize = s => String(s || '').toLowerCase().replace(/s$/, '');
+const primaryLabelSingular   = normalize(gameData.labels.primaryList);    // e.g., "suspect"
+const secondaryLabelSingular = normalize(gameData.labels.secondaryList);  // e.g., "location"
+const clueTypeSingular       = normalize(clue.type);
+
+if (clueTypeSingular === primaryLabelSingular) {
+  if (!gameState.eliminatedSuspects.includes(itemToEliminate)) {
+    gameState.eliminatedSuspects.push(itemToEliminate);
+  }
+} else if (clueTypeSingular === secondaryLabelSingular || clueTypeSingular === 'object') {
+  // Support older clues that still say "object"
+  if (!gameState.eliminatedObjects.includes(itemToEliminate)) {
+    gameState.eliminatedObjects.push(itemToEliminate);
+  }
+}
+
+gameState.currentClueIndex++;
+
+
+                // Show and populate the feedback view
+                const feedbackContainer = elements.taskScreenViews.feedback;
+                feedbackContainer.style.display = 'block';
+                feedbackContainer.className = 'feedback-container ' + (isCorrect ? 'correct' : 'incorrect');
+
+                elements.feedbackView.title.textContent = isCorrect ? "Correct!" : "Not Quite...";
+                const narrative = isCorrect ? clue.correctAnswerReason : clue.wrongAnswerReason;
+                renderNarrative(elements.feedbackView.narrative, narrative);
+            }
+
+            // --- Game End Flow Functions ---
+
+            function showGrandReveal() {
+                // Find the remaining suspect (the culprit)
+                // --- FIX: Changed s.name to s.text ---
+                const culprit = gameData.suspects.find(s => !gameState.eliminatedSuspects.includes(s.text));
+                // Find the remaining object (the tool)
+                // --- FIX: Changed o.name to o.text ---
+                const usedObject = gameData.objects.find(o => !gameState.eliminatedObjects.includes(o.text));
+
+                if (culprit) {
+                    // --- FIX: Changed culprit.img to culprit.image and culprit.name to culprit.text ---
+                    elements.reveal.culpritImg.src = culprit.image;
+                    elements.reveal.culpritName.textContent = culprit.text;
+                }
+                if (usedObject) {
+                    // --- FIX: Changed usedObject.img to usedObject.image and usedObject.name to usedObject.text ---
+                    elements.reveal.usedObjectImg.src = usedObject.image;
+                    elements.reveal.usedObjectName.textContent = usedObject.text;
+                }
+
+                // Render the reveal story
+                renderNarrative(elements.reveal.storyContent, gameData.storyScreens.revealStory);
+
+                navigateTo('grandReveal');
+            }
+
+            function showDetectiveAward() {
+                // Calculate score
+                const baseScore = gameState.correctAnswers * 100;
+                const errorPenalty = gameState.incorrectGuesses * 25;
+
+                gameState.finalScore = baseScore - errorPenalty;
+
+                // Find the correct award tier
+                let award = gameData.awardTiers.find(t => gameState.finalScore >= t.score) || gameData.awardTiers[gameData.awardTiers.length - 1];
+                gameState.finalRank = award.title;
+
+                // Populate the award screen
+                elements.award.badgeImg.src = award.img;
+                elements.award.badgeImg.alt = award.title;
+                elements.award.titleText.textContent = award.title;
+
+                // Populate score breakdown
+                elements.award.baseScore.textContent = baseScore;
+                elements.award.errorPenalty.textContent = `-${errorPenalty}`;
+                elements.award.finalScore.textContent = Math.round(gameState.finalScore);
+
+                // Replace placeholder and render dialogue
+                const personalizedDialogue = award.dialogue.map(d => ({
+                    type: 'dialogue',
+                    character: d.character,
+                    text: d.text.replace(/<player's name>/g, gameState.detectiveName)
+                }));
+                renderNarrative(elements.award.dialogueContainer, personalizedDialogue);
+
+                navigateTo('detectiveAward');
+            }
+
+            function showCertificate() {
+                elements.certificate.playerName.textContent = gameState.detectiveName;
+                elements.certificate.rank.textContent = gameState.finalRank;
+                navigateTo('certificate');
+            }
+
+
+            // --- EVENT LISTENERS ---
+            elements.buttons.start.addEventListener('click', () => {
+                // Only reset the game state IF we are starting a genuinely new game
+                if (gameState.currentClueIndex === 0) {
+                    gameState.detectiveName = '';
+                    gameState.currentScreen = 'welcome';
+                    gameState.correctAnswers = 0;
+                    gameState.incorrectGuesses = 0;
+                    gameState.finalScore = 0;
+                    gameState.finalRank = '';
+                    gameState.playerSelection = null;
+                    gameState.eliminatedObjects = [];
+                    gameState.eliminatedSuspects = [];
+                }
+
+                const name = elements.inputs.detectiveName.value.trim();
+                gameState.detectiveName = name || 'Brave Detective';
+
+                navigateTo('story');
+            });
+            elements.buttons.continueGame.addEventListener('click', () => {
+                // Load the saved game data and navigate to the saved screen
+                const saved = localStorage.getItem('gardenHeistProgress');
+                if (saved) {
+                    try {
+                        const savedState = JSON.parse(saved);
+                        Object.assign(gameState, savedState);
+                        navigateTo(gameState.currentScreen || 'welcome');
+                    } catch (e) {
+                        // If save is corrupted, start a new game instead
+                        navigateTo('story');
+                    }
+                }
+            });
+
+            // --- NEW "New Game" LOGIC ---
+
+            // When the main "New Game" button is clicked, just show our custom modal
+            elements.buttons.newGame.addEventListener('click', () => {
+                elements.confirmModal.style.display = 'flex';
+            });
+
+            // When the "Cancel" button inside the modal is clicked, hide it
+            elements.buttons.cancelNewGame.addEventListener('click', () => {
+                elements.confirmModal.style.display = 'none';
+            });
+
+            // When the "Yes, Start New Game" button is clicked, run the new game logic
+            elements.buttons.confirmNewGame.addEventListener('click', () => {
+                // Clear the correct saved game data
+                localStorage.removeItem('menstrieGiantProgress');
+                
+                // Reset game state
+                Object.assign(gameState, {
+                    currentClueIndex: 0,
+                    correctAnswers: 0,
+                    incorrectGuesses: 0,
+                    finalScore: 0,
+                    finalRank: '',
+                    playerSelection: null,
+                    eliminatedObjects: [],
+                    eliminatedSuspects: []
+                });
+
+                // Hide the modal and start the story
+                elements.confirmModal.style.display = 'none';
+                navigateTo('story');
+            });
+            
+
+            elements.buttons.storyContinue.addEventListener('click', () => navigateTo('introStory'));
+            elements.buttons.introStoryNext.addEventListener('click', () => navigateTo('cluePopup'));
+            elements.buttons.directionsNext.addEventListener('click', () => navigateTo('clueStory'));
+            elements.buttons.clueStorySolve.addEventListener('click', loadClueScreen);
+
+            elements.buttons.showSuspects.addEventListener('click', () => showGrid('suspects'));
+            elements.buttons.showObjects.addEventListener('click', () => showGrid('objects'));
+
+            elements.buttons.closeGrid.addEventListener('click', closeGrid);
+            elements.buttons.confirmSelection.addEventListener('click', () => {
+    confirmSelection();
+    saveGameState();
+});
+
+            elements.buttons.feedbackContinue.addEventListener('click', () => {
+                updateProgressScreen();
+            });
+
+            elements.buttons.progressContinue.addEventListener('click', () => {
+                if (gameState.currentClueIndex >= gameData.clues.length) {
+                    showGrandReveal();
+                } else {
+                    navigateTo('cluePopup');
+                }
+            });
+
+            elements.buttons.revealContinue.addEventListener('click', () => {
+                showDetectiveAward();
+            });
+
+            elements.buttons.playAgain.addEventListener('click', () => {
+                navigateTo('welcome');
+            });
+
+            elements.buttons.recap.addEventListener('click', () => {
+                const clue = gameData.clues[gameState.currentClueIndex];
+                if (!clue) return;
+
+                const recapContent = elements.recapModal.content;
+                recapContent.innerHTML = `
+                    <h3 class="screen-subheader header-directions">Directions</h3>
+                    <div id="recap-directions-content"></div>
+                    <h3 class="screen-subheader header-story">Story</h3>
+                    <div id="recap-story-content"></div>
+                `;
+
+                renderNarrative(document.getElementById('recap-directions-content'), clue.directions);
+                renderNarrative(document.getElementById('recap-story-content'), clue.clueStory);
+
+                elements.recapModal.container.style.display = 'flex';
+            });
+
+            elements.buttons.recapClose.addEventListener('click', () => {
+                elements.recapModal.container.style.display = 'none';
+            });
+
+            // Robust handler: cache-bust + graceful error message
+elements.buttons.showCypher.addEventListener('click', () => {
+  const src = elements.buttons.showCypher.dataset.cypherSrc;
+  if (!src) return;
+
+  // Clear any previous error UI
+  const oldMsg = document.getElementById('cypher-error');
+  if (oldMsg) oldMsg.remove();
+  elements.cypherView.img.style.display = '';
+  elements.cypherView.img.removeAttribute('src'); // force a fresh load
+
+  // Error + success handling
+  elements.cypherView.img.onerror = () => {
+    elements.cypherView.img.style.display = 'none';
+    const msg = document.createElement('p');
+    msg.id = 'cypher-error';
+    msg.style.marginTop = '10px';
+    msg.textContent = `Cypher image not found at: ${src}`;
+    elements.taskScreenViews.cypher.insertBefore(
+      msg,
+      elements.buttons.cypherClose
+    );
+  };
+  elements.cypherView.img.onload = () => {
+    const m = document.getElementById('cypher-error');
+    if (m) m.remove();
+    elements.cypherView.img.style.display = '';
+  };
+
+  // Cache-buster to beat stale service worker cache
+  const busted = src + (src.includes('?') ? '&' : '?') + 'v=' + Date.now();
+  elements.cypherView.img.src = busted;
+
+  elements.taskScreenViews.main.style.display = 'none';
+  elements.taskScreenViews.cypher.style.display = 'block';
+});
+
+
+
+            elements.buttons.cypherClose.addEventListener('click', () => {
+                elements.taskScreenViews.cypher.style.display = 'none';
+                elements.taskScreenViews.main.style.display = 'block';
+            });
+
+            elements.buttons.notebook.addEventListener('click', () => {
+                const populateNotebookGrid = (gridElement, items, eliminatedItems) => {
+                    gridElement.innerHTML = '';
+                    items.forEach(item => {
+                        const clone = elements.templates.gridItem.content.cloneNode(true);
+                        const div = clone.querySelector('.grid-item');
+                        const img = clone.querySelector('img');
+                        const p = clone.querySelector('p');
+                        div.style.cursor = 'default';
+                        div.style.transform = 'none';
+
+                        img.src = item.image;         // Use .image
+                        img.alt = item.text;          // Use .text
+                        p.textContent = item.text;    // Use .text
+
+                        if (eliminatedItems.includes(item.text)) { // Use .text
+                            div.classList.add('eliminated');
+}
+
+                        gridElement.appendChild(clone);
+                    });
+                };
+                // --- START of new code ---
+
+                // Create a shuffled copy of the suspects list
+                const shuffledSuspects = [...gameData.suspects];
+                for (let i = shuffledSuspects.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffledSuspects[i], shuffledSuspects[j]] = [shuffledSuspects[j], shuffledSuspects[i]];
+                }
+
+                // Create a shuffled copy of the objects list
+                const shuffledObjects = [...gameData.objects];
+                for (let i = shuffledObjects.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffledObjects[i], shuffledObjects[j]] = [shuffledObjects[j], shuffledObjects[i]];
+                }
+
+                // Use the new shuffled lists to build the notebook grids
+                populateNotebookGrid(elements.notebookView.suspectsGrid, shuffledSuspects, gameState.eliminatedSuspects);
+                populateNotebookGrid(elements.notebookView.objectsGrid, shuffledObjects, gameState.eliminatedObjects);
+
+                // --- END of new code ---
+
+                elements.taskScreenViews.main.style.display = 'none';
+                elements.taskScreenViews.notebook.style.display = 'block';
+            });
+
+            elements.buttons.notebookClose.addEventListener('click', () => {
+                elements.taskScreenViews.notebook.style.display = 'none';
+                elements.taskScreenViews.main.style.display = 'block';
+            });
+
+            elements.buttons.viewCertificate.addEventListener('click', showCertificate);
+            elements.buttons.certificateBack.addEventListener('click', () => navigateTo('detectiveAward'));
+            elements.buttons.printCertificate.addEventListener('click', () => {
+                window.print();
+            });
+
+            // --- INITIALIZATION ---
+            function preloadAssets(callback) {
+                const imageSrcs = new Set();
+
+                // Collect all image sources automatically
+                gameData.characters.forEach(c => imageSrcs.add(c.img));
+                gameData.suspects.forEach(s => imageSrcs.add(s.img));
+                gameData.objects.forEach(o => imageSrcs.add(o.img));
+                gameData.awardTiers.forEach(t => imageSrcs.add(t.img));
+                gameData.clues.forEach(clue => {
+                    if (clue.directionsImages) {
+                        clue.directionsImages.forEach(img => imageSrcs.add(img));
+                    }
+                    if (clue.cypherImage) {
+                        imageSrcs.add(clue.cypherImage);
+                    }
+                });
+
+                // Add any other standalone images here
+                const otherImages = [
+                    
+                ];
+                otherImages.forEach(img => imageSrcs.add(img));
+
+                const totalAssets = imageSrcs.size;
+                let loadedAssets = 0;
+
+                if (totalAssets === 0) {
+                    callback();
+                    return;
+                }
+
+                const updateProgressBar = () => {
+                    loadedAssets++;
+                    const percentage = Math.round((loadedAssets / totalAssets) * 100);
+                    elements.loading.progressBar.style.width = `${percentage}%`;
+                    elements.loading.progressBar.textContent = `${percentage}%`;
+                    if (loadedAssets === totalAssets) {
+                        // A small delay to allow the 100% to be visible
+                        setTimeout(callback, 300);
+                    }
+                };
+
+                // Create image elements to trigger download
+                imageSrcs.forEach(src => {
+                    if (!src) {
+                        updateProgressBar(); // Count non-existent images as "loaded"
+                        return;
+                    }
+                    const img = new Image();
+                    img.onload = updateProgressBar;
+                    img.onerror = updateProgressBar; // Also count errors as "loaded" to not halt the game
+                    img.src = src;
+                });
+            }
+
+            
+
+            init();
+        });
+    </script>
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      // Register the service worker from the root directory
+      navigator.serviceWorker.register('pwabuilder-sw.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+</script>
+
+  
+</body>
+</html>
