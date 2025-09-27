@@ -33,7 +33,7 @@
         { "text": "Five Arch Bridge", "image": "assets/images/locations/five_arch_bridge.jpg" },
         { "text": "Glasshouse", "image": "assets/images/locations/glasshouse.jpg" },
         { "text": "Mercat Cross", "image": "assets/images/locations/mercat_cross.jpg" },
-        { "text": "Nut Tree Junction", "image": "assets/images/locations/nut_tree_junction.jpg" },
+        { "text": "Nut-tree Junction", "image": "assets/images/locations/nut_tree_junction.jpg" },
         { "text": "Orangery Outpost", "image": "assets/images/locations/orangery_outpost.jpg" },
         { "text": "Peacocks Gymnasium", "image": "assets/images/locations/peacocks_gymnasium.jpg" },
         { "text": "Twinkle Toes Dance Hall", "image": "assets/images/locations/twinkle_toes_dance_hall.jpg" },
@@ -43,4 +43,5 @@
       ]
     }
   ]
+
 }
